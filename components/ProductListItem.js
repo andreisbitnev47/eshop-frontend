@@ -1,10 +1,16 @@
 
-export const ProductListItem = ({ id, title, img, price }) => (
+import Link from 'next/link'
+
+export const ProductListItem = ({ id, title, img, price, handle }) => (
     <div className="col-sm col-md-6 col-lg-3">
         <div className="product">
-        <a href="#" className="img-prod"><img className="img-fluid" src={img} alt="Colorlib Template" /></a>
+        <Link as={`/shop/${handle}`} href={`/product?handle=${handle}`}>
+            <h3><a href="#" className="img-prod"><img className="img-fluid" src={img} alt="Colorlib Template" /></a></h3>
+        </Link>
         <div className="text py-3 px-3">
-            <h3><a href="#">{title}</a></h3>
+            <Link as={`/shop/${handle}`} href={`/product?handle=${handle}`}>
+                <h3><a href="#">{title}</a></h3>
+            </Link>
             <div className="d-flex">
             <div className="pricing">
                 <p className="price"><span className="price-sale">€{price}</span></p>

@@ -7,6 +7,7 @@ export const productsQuery = gql`
   query products {
     products {
       id
+      handle
       title(language: "en")
       price
       imgSmall
@@ -24,8 +25,8 @@ export const ProductList = () => {
         return (
           <div className="container-fluid">
             <div className="row">
-              {products.map(({ id, title, price, imgSmall }) => (
-                <ProductListItem key={id} id={id} title={title} price={price} img={imgSmall}/>
+              {products.map(({ id, title, price, imgSmall, handle }) => (
+                <ProductListItem key={id} id={id} title={title} price={price} img={imgSmall} handle={handle}/>
               ))}
             </div>
           </div>

@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -613,7 +613,7 @@ var _jsxFileName = "/home/user/projects/eshop-frontend/components/ProductList.js
 
 
 function _templateObject() {
-  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n  query products {\n    products {\n      id\n      title(language: \"en\")\n      price\n      imgSmall\n    }\n  }\n"]);
+  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n  query products {\n    products {\n      id\n      handle\n      title(language: \"en\")\n      price\n      imgSmall\n    }\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -632,7 +632,7 @@ var ProductList = function ProductList() {
     query: productsQuery,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19
+      lineNumber: 20
     },
     __self: this
   }, function (_ref) {
@@ -644,14 +644,14 @@ var ProductList = function ProductList() {
       message: "Error loading posts.",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 21
+        lineNumber: 22
       },
       __self: this
     });
     if (loading) return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 22
+        lineNumber: 23
       },
       __self: this
     }, "Loading");
@@ -659,30 +659,32 @@ var ProductList = function ProductList() {
       className: "container-fluid",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 25
+        lineNumber: 26
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
       className: "row",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 26
+        lineNumber: 27
       },
       __self: this
     }, products.map(function (_ref2) {
       var id = _ref2.id,
           title = _ref2.title,
           price = _ref2.price,
-          imgSmall = _ref2.imgSmall;
+          imgSmall = _ref2.imgSmall,
+          handle = _ref2.handle;
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_ProductListItem__WEBPACK_IMPORTED_MODULE_5__["ProductListItem"], {
         key: id,
         id: id,
         title: title,
         price: price,
         img: imgSmall,
+        handle: handle,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 28
+          lineNumber: 29
         },
         __self: this
       });
@@ -704,25 +706,43 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProductListItem", function() { return ProductListItem; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
 var _jsxFileName = "/home/user/projects/eshop-frontend/components/ProductListItem.js";
+
 
 var ProductListItem = function ProductListItem(_ref) {
   var id = _ref.id,
       title = _ref.title,
       img = _ref.img,
-      price = _ref.price;
+      price = _ref.price,
+      handle = _ref.handle;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-sm col-md-6 col-lg-3",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 3
+      lineNumber: 5
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "product",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 4
+      lineNumber: 6
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    as: "/shop/".concat(handle),
+    href: "/product?handle=".concat(handle),
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -730,7 +750,7 @@ var ProductListItem = function ProductListItem(_ref) {
     className: "img-prod",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 5
+      lineNumber: 8
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -739,117 +759,125 @@ var ProductListItem = function ProductListItem(_ref) {
     alt: "Colorlib Template",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 5
+      lineNumber: 8
     },
     __self: this
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "text py-3 px-3",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 6
+      lineNumber: 10
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    as: "/shop/".concat(handle),
+    href: "/product?handle=".concat(handle),
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 7
+      lineNumber: 12
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "#",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 7
+      lineNumber: 12
     },
     __self: this
-  }, title)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, title))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "d-flex",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8
+      lineNumber: 14
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "pricing",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9
+      lineNumber: 15
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "price",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10
+      lineNumber: 16
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "price-sale",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10
+      lineNumber: 16
     },
     __self: this
   }, "\u20AC", price))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "rating",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12
+      lineNumber: 18
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "text-right",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13
+      lineNumber: 19
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "ion-ios-star-outline",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14
+      lineNumber: 20
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "ion-ios-star-outline",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15
+      lineNumber: 21
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "ion-ios-star-outline",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16
+      lineNumber: 22
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "ion-ios-star-outline",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 17
+      lineNumber: 23
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "ion-ios-star-outline",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18
+      lineNumber: 24
     },
     __self: this
   })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 22
+      lineNumber: 28
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "bottom-area d-flex",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 23
+      lineNumber: 29
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -857,20 +885,20 @@ var ProductListItem = function ProductListItem(_ref) {
     className: "add-to-cart",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24
+      lineNumber: 30
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24
+      lineNumber: 30
     },
     __self: this
   }, "Add to cart ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "ion-ios-add ml-1",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24
+      lineNumber: 30
     },
     __self: this
   }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -878,20 +906,20 @@ var ProductListItem = function ProductListItem(_ref) {
     className: "ml-auto",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25
+      lineNumber: 31
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25
+      lineNumber: 31
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "ion-ios-heart-empty",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25
+      lineNumber: 31
     },
     __self: this
   })))))));
@@ -1026,131 +1054,6 @@ var About = function About(_ref) {
     __self: this
   }, "Read more"))))));
 };
-
-/***/ }),
-
-/***/ "./components/index/Index.js":
-/*!***********************************!*\
-  !*** ./components/index/Index.js ***!
-  \***********************************/
-/*! exports provided: indexContentQuery, default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "indexContentQuery", function() { return indexContentQuery; });
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral */ "./node_modules/@babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-apollo */ "react-apollo");
-/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! graphql-tag */ "graphql-tag");
-/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _ErrorMessage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../ErrorMessage */ "./components/ErrorMessage.js");
-/* harmony import */ var lodash_get__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! lodash/get */ "lodash/get");
-/* harmony import */ var lodash_get__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(lodash_get__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _Products__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Products */ "./components/index/Products.js");
-/* harmony import */ var _MainImage__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./MainImage */ "./components/index/MainImage.js");
-/* harmony import */ var _About__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./About */ "./components/index/About.js");
-/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../constants */ "./constants.js");
-
-var _jsxFileName = "/home/user/projects/eshop-frontend/components/index/Index.js";
-
-
-function _templateObject() {
-  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n  query indexContentQuery {\n    contnetsByGroup(group: \"index\") {\n      id\n      handle\n      group\n      title(language: \"en\")\n      subTitle(language: \"en\")\n      paragraph(language: \"en\")\n      img(language: \"en\") {\n        alt\n        url\n      }\n    }\n  }\n"]);
-
-  _templateObject = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-
-
-
-
-
-
-
-
-
-var indexContentQuery = graphql_tag__WEBPACK_IMPORTED_MODULE_3___default()(_templateObject());
-/* harmony default export */ __webpack_exports__["default"] = (function () {
-  return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_2__["Query"], {
-    query: indexContentQuery,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 27
-    },
-    __self: this
-  }, function (_ref) {
-    var loading = _ref.loading,
-        error = _ref.error,
-        contnetsByGroup = _ref.data.contnetsByGroup,
-        fetchMore = _ref.fetchMore;
-    if (error) return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_ErrorMessage__WEBPACK_IMPORTED_MODULE_4__["default"], {
-      message: "Error loading posts.",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 29
-      },
-      __self: this
-    });
-    if (loading) return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 30
-      },
-      __self: this
-    }, "Loading");
-    var contentObj = contnetsByGroup.reduce(function (acc, contentObj) {
-      acc[contentObj.handle] = contentObj;
-      return acc;
-    }, {});
-    var mainImageContent = {
-      img: lodash_get__WEBPACK_IMPORTED_MODULE_5___default()(contentObj, 'mainImage.img[0]', _constants__WEBPACK_IMPORTED_MODULE_9__["default"].unavailableImage),
-      title: lodash_get__WEBPACK_IMPORTED_MODULE_5___default()(contentObj, 'mainImage.title[0]', ''),
-      subTitle: lodash_get__WEBPACK_IMPORTED_MODULE_5___default()(contentObj, 'mainImage.subTitle[0]', '')
-    };
-    var productsContent = {
-      title: lodash_get__WEBPACK_IMPORTED_MODULE_5___default()(contentObj, 'index_products.title[0]', ''),
-      subTitle: lodash_get__WEBPACK_IMPORTED_MODULE_5___default()(contentObj, 'index_products.subTitle[0]', '')
-    };
-    var aboutContent = {
-      img: lodash_get__WEBPACK_IMPORTED_MODULE_5___default()(contentObj, 'index_about.img[0]', _constants__WEBPACK_IMPORTED_MODULE_9__["default"].unavailableImage),
-      title: lodash_get__WEBPACK_IMPORTED_MODULE_5___default()(contentObj, 'index_about.title[0]', ''),
-      mainText: lodash_get__WEBPACK_IMPORTED_MODULE_5___default()(contentObj, 'index_about.paragraph', [''])
-    };
-    return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_MainImage__WEBPACK_IMPORTED_MODULE_7__["MainImage"], {
-      img: mainImageContent.img,
-      title: mainImageContent.title,
-      subTitle: mainImageContent.subTitle,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 51
-      },
-      __self: this
-    }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_Products__WEBPACK_IMPORTED_MODULE_6__["Products"], {
-      title: productsContent.title,
-      subTitle: productsContent.subTitle,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 52
-      },
-      __self: this
-    }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_About__WEBPACK_IMPORTED_MODULE_8__["About"], {
-      img: aboutContent.img,
-      title: aboutContent.title,
-      mainText: aboutContent.mainText,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 53
-      },
-      __self: this
-    }));
-  });
-});
 
 /***/ }),
 
@@ -1349,6 +1252,131 @@ var Products = function Products(_ref) {
     __self: this
   }, "Go to Shop")));
 };
+
+/***/ }),
+
+/***/ "./components/index/index.js":
+/*!***********************************!*\
+  !*** ./components/index/index.js ***!
+  \***********************************/
+/*! exports provided: indexContentQuery, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "indexContentQuery", function() { return indexContentQuery; });
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral */ "./node_modules/@babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-apollo */ "react-apollo");
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! graphql-tag */ "graphql-tag");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _ErrorMessage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../ErrorMessage */ "./components/ErrorMessage.js");
+/* harmony import */ var lodash_get__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! lodash/get */ "lodash/get");
+/* harmony import */ var lodash_get__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(lodash_get__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _Products__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Products */ "./components/index/Products.js");
+/* harmony import */ var _MainImage__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./MainImage */ "./components/index/MainImage.js");
+/* harmony import */ var _About__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./About */ "./components/index/About.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../constants */ "./constants.js");
+
+var _jsxFileName = "/home/user/projects/eshop-frontend/components/index/index.js";
+
+
+function _templateObject() {
+  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n  query indexContentQuery {\n    contnetsByGroup(group: \"index\") {\n      id\n      handle\n      group\n      title(language: \"en\")\n      subTitle(language: \"en\")\n      paragraph(language: \"en\")\n      img(language: \"en\") {\n        alt\n        url\n      }\n    }\n  }\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+
+
+
+
+
+
+
+
+var indexContentQuery = graphql_tag__WEBPACK_IMPORTED_MODULE_3___default()(_templateObject());
+/* harmony default export */ __webpack_exports__["default"] = (function () {
+  return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_2__["Query"], {
+    query: indexContentQuery,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 27
+    },
+    __self: this
+  }, function (_ref) {
+    var loading = _ref.loading,
+        error = _ref.error,
+        contnetsByGroup = _ref.data.contnetsByGroup,
+        fetchMore = _ref.fetchMore;
+    if (error) return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_ErrorMessage__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      message: "Error loading posts.",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 29
+      },
+      __self: this
+    });
+    if (loading) return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 30
+      },
+      __self: this
+    }, "Loading");
+    var contentObj = contnetsByGroup.reduce(function (acc, contentObj) {
+      acc[contentObj.handle] = contentObj;
+      return acc;
+    }, {});
+    var mainImageContent = {
+      img: lodash_get__WEBPACK_IMPORTED_MODULE_5___default()(contentObj, 'mainImage.img[0]', _constants__WEBPACK_IMPORTED_MODULE_9__["default"].unavailableImage),
+      title: lodash_get__WEBPACK_IMPORTED_MODULE_5___default()(contentObj, 'mainImage.title[0]', ''),
+      subTitle: lodash_get__WEBPACK_IMPORTED_MODULE_5___default()(contentObj, 'mainImage.subTitle[0]', '')
+    };
+    var productsContent = {
+      title: lodash_get__WEBPACK_IMPORTED_MODULE_5___default()(contentObj, 'index_products.title[0]', ''),
+      subTitle: lodash_get__WEBPACK_IMPORTED_MODULE_5___default()(contentObj, 'index_products.subTitle[0]', '')
+    };
+    var aboutContent = {
+      img: lodash_get__WEBPACK_IMPORTED_MODULE_5___default()(contentObj, 'index_about.img[0]', _constants__WEBPACK_IMPORTED_MODULE_9__["default"].unavailableImage),
+      title: lodash_get__WEBPACK_IMPORTED_MODULE_5___default()(contentObj, 'index_about.title[0]', ''),
+      mainText: lodash_get__WEBPACK_IMPORTED_MODULE_5___default()(contentObj, 'index_about.paragraph', [''])
+    };
+    return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_MainImage__WEBPACK_IMPORTED_MODULE_7__["MainImage"], {
+      img: mainImageContent.img,
+      title: mainImageContent.title,
+      subTitle: mainImageContent.subTitle,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 51
+      },
+      __self: this
+    }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_Products__WEBPACK_IMPORTED_MODULE_6__["Products"], {
+      title: productsContent.title,
+      subTitle: productsContent.subTitle,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 52
+      },
+      __self: this
+    }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_About__WEBPACK_IMPORTED_MODULE_8__["About"], {
+      img: aboutContent.img,
+      title: aboutContent.title,
+      mainText: aboutContent.mainText,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 53
+      },
+      __self: this
+    }));
+  });
+});
 
 /***/ }),
 
@@ -3160,7 +3188,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Footer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Footer */ "./components/Footer.js");
 /* harmony import */ var next_server_head__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! next-server/head */ "next-server/head");
 /* harmony import */ var next_server_head__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(next_server_head__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _components_index_Index__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/index/Index */ "./components/index/Index.js");
+/* harmony import */ var _components_index_index__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/index/index */ "./components/index/index.js");
 var _jsxFileName = "/home/user/projects/eshop-frontend/pages/index.js";
 
 
@@ -3187,7 +3215,7 @@ var _jsxFileName = "/home/user/projects/eshop-frontend/pages/index.js";
       lineNumber: 10
     },
     __self: this
-  }, "My styled page"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
+  }, "Home"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
     href: "/static/css/bootstrap.min.css",
     rel: "stylesheet",
     __source: {
@@ -3225,7 +3253,7 @@ var _jsxFileName = "/home/user/projects/eshop-frontend/pages/index.js";
       lineNumber: 16
     },
     __self: this
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_index_Index__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_index_index__WEBPACK_IMPORTED_MODULE_5__["default"], {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 17
@@ -3242,7 +3270,7 @@ var _jsxFileName = "/home/user/projects/eshop-frontend/pages/index.js";
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/
