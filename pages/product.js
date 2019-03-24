@@ -1,20 +1,14 @@
 import App from '../components/App';
 import Header from '../components/Header';
 import { Footer } from '../components/Footer';
-import Head from 'next/head';
-import IndexPage from '../components/product/index';
+import Head from '../components/Head';
+import ProductPage from '../components/product/index';
 
 export default () => (
   <App>
-    <Head>
-      <title>Product</title>
-      <link href="/static/css/bootstrap.min.css" rel="stylesheet" />
-      <link href="/static/css/owl.carousel.min.css" rel="stylesheet" />
-      <link href="/static/css/style.css" rel="stylesheet" />
-      <link href="/static/css/animate.css" rel="stylesheet" />
-    </Head>
+    <Head title="Product"/>
     <Header />
-    <IndexPage />
+    <ProductPage />
     <Footer />
   </App>
 )

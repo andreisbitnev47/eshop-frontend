@@ -1012,7 +1012,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 Based on Glamor's sheet
 https://github.com/threepointone/glamor/blob/667b480d31b3721a905021b26e1290ce92ca2879/src/sheet.js
 */
-var isProd = process.env && "development" === 'production';
+var isProd = process.env && "develop" === 'production';
 
 var isString = function isString(o) {
   return Object.prototype.toString.call(o) === '[object String]';

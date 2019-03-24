@@ -6364,7 +6364,10 @@ function () {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
-                if (false) {}
+                if (true) {
+                  _context4.next = 2;
+                  break;
+                }
 
                 return _context4.abrupt("return");
 
@@ -6806,15 +6809,7 @@ exports.loadGetInitialProps = loadGetInitialProps;
 exports.urlObjectKeys = ['auth', 'hash', 'host', 'hostname', 'href', 'path', 'pathname', 'port', 'protocol', 'query', 'search', 'slashes'];
 
 function formatWithValidation(url, options) {
-  if (true) {
-    if (url !== null && (0, _typeof2.default)(url) === 'object') {
-      (0, _keys.default)(url).forEach(function (key) {
-        if (!exports.urlObjectKeys.includes(key)) {
-          console.warn("Unknown key passed via urlObject into url.format: ".concat(key));
-        }
-      });
-    }
-  }
+  if (false) {}
 
   return url_1.format(url, options);
 }
@@ -8484,9 +8479,7 @@ _regenerator.default.mark(function _callee() {
           _ref4 = _args.length > 0 && _args[0] !== undefined ? _args[0] : {}, passedWebpackHMR = _ref4.webpackHMR;
 
           // This makes sure this specific line is removed in production
-          if (true) {
-            webpackHMR = passedWebpackHMR;
-          }
+          if (false) {}
 
           _context.next = 4;
           return pageLoader.loadPage('/_app');
@@ -8757,11 +8750,53 @@ function _doRender() {
               appProps: appProps
             }); // In development runtime errors are caught by react-error-overlay.
 
-            if (true) {
-              renderReactElement(react_1.default.createElement(head_manager_context_1.HeadManagerContext.Provider, {
+            if (false) {} else {
+              // In production we catch runtime errors using componentDidCatch which will trigger renderError.
+              onError =
+              /*#__PURE__*/
+              function () {
+                var _ref7 = (0, _asyncToGenerator2.default)(
+                /*#__PURE__*/
+                _regenerator.default.mark(function _callee4(error) {
+                  return _regenerator.default.wrap(function _callee4$(_context4) {
+                    while (1) {
+                      switch (_context4.prev = _context4.next) {
+                        case 0:
+                          _context4.prev = 0;
+                          _context4.next = 3;
+                          return renderError({
+                            App: App,
+                            err: error
+                          });
+
+                        case 3:
+                          _context4.next = 8;
+                          break;
+
+                        case 5:
+                          _context4.prev = 5;
+                          _context4.t0 = _context4["catch"](0);
+                          console.error('Error while rendering error page: ', _context4.t0);
+
+                        case 8:
+                        case "end":
+                          return _context4.stop();
+                      }
+                    }
+                  }, _callee4, this, [[0, 5]]);
+                }));
+
+                return function onError(_x4) {
+                  return _ref7.apply(this, arguments);
+                };
+              }();
+
+              renderReactElement(react_1.default.createElement(error_boundary_1.default, {
+                onError: onError
+              }, react_1.default.createElement(head_manager_context_1.HeadManagerContext.Provider, {
                 value: headManager.updateHead
-              }, react_1.default.createElement(App, (0, _assign.default)({}, appProps))), appContainer);
-            } else {}
+              }, react_1.default.createElement(App, (0, _assign.default)({}, appProps)))), appContainer);
+            }
 
             emitterProp.emit('after-reactdom-render', {
               Component: Component,

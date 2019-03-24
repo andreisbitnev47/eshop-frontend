@@ -2,7 +2,7 @@ export const MainImage = ({ img, title, subTitle}) => (
     <div className="hero-wrap js-fullheight" style={{ backgroundImage: `url('${process.env.BACKEND_URL}${img.url}')`, height: '942px'}}>
       <div className="overlay"></div>
       <div className="container">
-        <div className="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
+        <div className="row no-gutters slider-text js-fullheight align-items-center justify-content-center" style={{ height: '942px' }}>
           <div className="col-md-11 text-center">
             <h1>{title}</h1>
             <h2><span>{subTitle}</span></h2>

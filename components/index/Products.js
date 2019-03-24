@@ -1,4 +1,7 @@
 import { ProductList } from '../ProductList';
+import { Translate } from '../Translate';
+import Link from '../Link';
+import A from '../A';
 
 export const Products = ({ title, subTitle }) => (
     <section className="ftco-section bg-light">
@@ -11,6 +14,12 @@ export const Products = ({ title, subTitle }) => (
             </div>    		
     	</div>
         <ProductList />
-        <p style={{ textAlign: 'center' }}><a href="#" className="btn btn-primary py-3 px-5">Go to Shop</a></p>
+        <p style={{ textAlign: 'center' }}>
+            <Link href="/shop">
+                <A href="/shop" classNames="btn btn-primary py-3 px-5">
+                    <Translate id="main.go_to_shop"/>
+                </A>
+            </Link>
+        </p>
     </section>
 )

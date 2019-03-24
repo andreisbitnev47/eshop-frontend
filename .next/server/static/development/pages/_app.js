@@ -185,7 +185,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "/home/user/projects/eshop-frontend/lib/with-apollo-client.js";
 
 
 
@@ -235,12 +234,7 @@ var _jsxFileName = "/home/user/projects/eshop-frontend/lib/with-apollo-client.js
                   return Object(react_apollo__WEBPACK_IMPORTED_MODULE_13__["getDataFromTree"])(react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(App, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__["default"])({}, appProps, {
                     Component: Component,
                     router: router,
-                    apolloClient: apollo,
-                    __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 24
-                    },
-                    __self: this
+                    apolloClient: apollo
                   })));
 
                 case 11:
@@ -272,7 +266,7 @@ var _jsxFileName = "/home/user/projects/eshop-frontend/lib/with-apollo-client.js
                   return _context.stop();
               }
             }
-          }, _callee, this, [[8, 13]]);
+          }, _callee, null, [[8, 13]]);
         }));
 
         function getInitialProps(_x) {
@@ -297,12 +291,7 @@ var _jsxFileName = "/home/user/projects/eshop-frontend/lib/with-apollo-client.js
       key: "render",
       value: function render() {
         return react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(App, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__["default"])({}, this.props, {
-          apolloClient: this.apolloClient,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 58
-          },
-          __self: this
+          apolloClient: this.apolloClient
         }));
       }
     }]);
@@ -310,6 +299,17 @@ var _jsxFileName = "/home/user/projects/eshop-frontend/lib/with-apollo-client.js
     return Apollo;
   }(react__WEBPACK_IMPORTED_MODULE_10___default.a.Component), Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])(_class, "displayName", 'withApollo(App)'), _temp;
 });
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/core-js/map.js":
+/*!************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/core-js/map.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! core-js/library/fn/map */ "core-js/library/fn/map");
 
 /***/ }),
 
@@ -335,6 +335,17 @@ module.exports = __webpack_require__(/*! core-js/library/fn/object/create */ "co
 
 /***/ }),
 
+/***/ "./node_modules/@babel/runtime-corejs2/core-js/object/define-properties.js":
+/*!*********************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/core-js/object/define-properties.js ***!
+  \*********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! core-js/library/fn/object/define-properties */ "core-js/library/fn/object/define-properties");
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js":
 /*!*******************************************************************************!*\
   !*** ./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js ***!
@@ -343,6 +354,17 @@ module.exports = __webpack_require__(/*! core-js/library/fn/object/create */ "co
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(/*! core-js/library/fn/object/define-property */ "core-js/library/fn/object/define-property");
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/core-js/object/freeze.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/core-js/object/freeze.js ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! core-js/library/fn/object/freeze */ "core-js/library/fn/object/freeze");
 
 /***/ }),
 
@@ -935,6 +957,36 @@ function _setPrototypeOf(o, p) {
   };
 
   return _setPrototypeOf(o, p);
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral.js":
+/*!**********************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral.js ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _taggedTemplateLiteral; });
+/* harmony import */ var _core_js_object_define_properties__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core-js/object/define-properties */ "./node_modules/@babel/runtime-corejs2/core-js/object/define-properties.js");
+/* harmony import */ var _core_js_object_define_properties__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_js_object_define_properties__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _core_js_object_freeze__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../core-js/object/freeze */ "./node_modules/@babel/runtime-corejs2/core-js/object/freeze.js");
+/* harmony import */ var _core_js_object_freeze__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_core_js_object_freeze__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function _taggedTemplateLiteral(strings, raw) {
+  if (!raw) {
+    raw = strings.slice(0);
+  }
+
+  return _core_js_object_freeze__WEBPACK_IMPORTED_MODULE_1___default()(_core_js_object_define_properties__WEBPACK_IMPORTED_MODULE_0___default()(strings, {
+    raw: {
+      value: _core_js_object_freeze__WEBPACK_IMPORTED_MODULE_1___default()(raw)
+    }
+  }));
 }
 
 /***/ }),
@@ -1752,26 +1804,25 @@ module.exports = __webpack_require__(/*! ./dist/client/router */ "./node_modules
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/extends */ "./node_modules/@babel/runtime-corejs2/helpers/esm/extends.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime-corejs2/helpers/esm/classCallCheck.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/createClass */ "./node_modules/@babel/runtime-corejs2/helpers/esm/createClass.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/possibleConstructorReturn */ "./node_modules/@babel/runtime-corejs2/helpers/esm/possibleConstructorReturn.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/getPrototypeOf */ "./node_modules/@babel/runtime-corejs2/helpers/esm/getPrototypeOf.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/inherits */ "./node_modules/@babel/runtime-corejs2/helpers/esm/inherits.js");
-/* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! next/app */ "./node_modules/next/app.js");
-/* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(next_app__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _lib_with_apollo_client__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../lib/with-apollo-client */ "./lib/with-apollo-client.js");
-/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-apollo */ "react-apollo");
-/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime-corejs2/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/createClass */ "./node_modules/@babel/runtime-corejs2/helpers/esm/createClass.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/possibleConstructorReturn */ "./node_modules/@babel/runtime-corejs2/helpers/esm/possibleConstructorReturn.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/getPrototypeOf */ "./node_modules/@babel/runtime-corejs2/helpers/esm/getPrototypeOf.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/inherits */ "./node_modules/@babel/runtime-corejs2/helpers/esm/inherits.js");
+/* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! next/app */ "./node_modules/next/app.js");
+/* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(next_app__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _lib_with_apollo_client__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../lib/with-apollo-client */ "./lib/with-apollo-client.js");
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-apollo */ "react-apollo");
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _shared_context_TranslationContext__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../shared/context/TranslationContext */ "./shared/context/TranslationContext.js");
 
 
 
 
 
 
-var _jsxFileName = "/home/user/projects/eshop-frontend/pages/_app.js";
 
 
 
@@ -1780,48 +1831,187 @@ var _jsxFileName = "/home/user/projects/eshop-frontend/pages/_app.js";
 var MyApp =
 /*#__PURE__*/
 function (_App) {
-  Object(_babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_5__["default"])(MyApp, _App);
+  Object(_babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(MyApp, _App);
 
   function MyApp() {
-    Object(_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, MyApp);
+    Object(_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, MyApp);
 
-    return Object(_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__["default"])(this, Object(_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__["default"])(MyApp).apply(this, arguments));
+    return Object(_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__["default"])(this, Object(_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__["default"])(MyApp).apply(this, arguments));
   }
 
-  Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(MyApp, [{
+  Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(MyApp, [{
     key: "render",
     value: function render() {
       var _this$props = this.props,
           Component = _this$props.Component,
           pageProps = _this$props.pageProps,
           apolloClient = _this$props.apolloClient;
-      return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(next_app__WEBPACK_IMPORTED_MODULE_6__["Container"], {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 10
-        },
-        __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_9__["ApolloProvider"], {
-        client: apolloClient,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 11
-        },
-        __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(Component, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, pageProps, {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 12
-        },
-        __self: this
-      }))));
+      return react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(next_app__WEBPACK_IMPORTED_MODULE_5__["Container"], null, react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_8__["ApolloProvider"], {
+        client: apolloClient
+      }, react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_shared_context_TranslationContext__WEBPACK_IMPORTED_MODULE_9__["TranslationsProvider"], null, react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(Component, pageProps))));
     }
   }]);
 
   return MyApp;
-}(next_app__WEBPACK_IMPORTED_MODULE_6___default.a);
+}(next_app__WEBPACK_IMPORTED_MODULE_5___default.a);
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(_lib_with_apollo_client__WEBPACK_IMPORTED_MODULE_8__["default"])(MyApp));
+/* harmony default export */ __webpack_exports__["default"] = (Object(_lib_with_apollo_client__WEBPACK_IMPORTED_MODULE_7__["default"])(MyApp));
+
+/***/ }),
+
+/***/ "./shared/context/TranslationContext.js":
+/*!**********************************************!*\
+  !*** ./shared/context/TranslationContext.js ***!
+  \**********************************************/
+/*! exports provided: TranslationsProvider, withtranslations */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TranslationsProvider", function() { return TranslationsProvider; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "withtranslations", function() { return withtranslations; });
+/* harmony import */ var _babel_runtime_corejs2_core_js_map__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/map */ "./node_modules/@babel/runtime-corejs2/core-js/map.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_map__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_map__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral */ "./node_modules/@babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! graphql-tag */ "graphql-tag");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! prop-types */ "prop-types");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var recompose_compose__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! recompose/compose */ "recompose/compose");
+/* harmony import */ var recompose_compose__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(recompose_compose__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var recompose_withProps__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! recompose/withProps */ "recompose/withProps");
+/* harmony import */ var recompose_withProps__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(recompose_withProps__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var recompose_withContext__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! recompose/withContext */ "recompose/withContext");
+/* harmony import */ var recompose_withContext__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(recompose_withContext__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var recompose_getContext__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! recompose/getContext */ "recompose/getContext");
+/* harmony import */ var recompose_getContext__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(recompose_getContext__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var recompose_setDisplayName__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! recompose/setDisplayName */ "recompose/setDisplayName");
+/* harmony import */ var recompose_setDisplayName__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(recompose_setDisplayName__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _hocs_customQuery__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../hocs/customQuery */ "./shared/hocs/customQuery.js");
+/* harmony import */ var https__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! https */ "https");
+/* harmony import */ var https__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(https__WEBPACK_IMPORTED_MODULE_11__);
+
+
+
+function _templateObject() {
+  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_1__["default"])(["\n    query translations($language: String!) {\n        translations{\n            id\n            key\n            translation(language: $language)\n        }\n    }\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+
+
+
+
+
+
+
+
+
+
+var TRANSLATIONS_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_3___default()(_templateObject());
+var contextOptions = {
+  translations: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.object
+};
+var TranslationsProvider = recompose_compose__WEBPACK_IMPORTED_MODULE_5___default()(recompose_setDisplayName__WEBPACK_IMPORTED_MODULE_9___default()('TranslationsProvider'), Object(_hocs_customQuery__WEBPACK_IMPORTED_MODULE_10__["withQueryOptionsAndLoading"])(TRANSLATIONS_QUERY), recompose_withProps__WEBPACK_IMPORTED_MODULE_6___default()(function (_ref) {
+  var data = _ref.data;
+  return {
+    translationsArr: data.translations
+  };
+}), recompose_withContext__WEBPACK_IMPORTED_MODULE_7___default()(contextOptions, function (_ref2) {
+  var translationsArr = _ref2.translationsArr;
+  return {
+    translations: new _babel_runtime_corejs2_core_js_map__WEBPACK_IMPORTED_MODULE_0___default.a(translationsArr.map(function (_ref3) {
+      var key = _ref3.key,
+          translation = _ref3.translation;
+      return [key, translation];
+    }))
+  };
+}))(function (props) {
+  return react__WEBPACK_IMPORTED_MODULE_2___default.a.Children.only(props.children);
+});
+var withtranslations = recompose_compose__WEBPACK_IMPORTED_MODULE_5___default()(recompose_getContext__WEBPACK_IMPORTED_MODULE_8___default()(contextOptions), recompose_withContext__WEBPACK_IMPORTED_MODULE_7___default()(contextOptions, function (_ref4) {
+  var translations = _ref4.translations;
+  return {
+    translations: translations
+  };
+}));
+
+/***/ }),
+
+/***/ "./shared/hocs/customQuery.js":
+/*!************************************!*\
+  !*** ./shared/hocs/customQuery.js ***!
+  \************************************/
+/*! exports provided: withQueryOptions, withQueryOptionsAndLoading */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "withQueryOptions", function() { return withQueryOptions; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "withQueryOptionsAndLoading", function() { return withQueryOptionsAndLoading; });
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/objectSpread */ "./node_modules/@babel/runtime-corejs2/helpers/esm/objectSpread.js");
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-apollo */ "react-apollo");
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var recompose_compose__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! recompose/compose */ "recompose/compose");
+/* harmony import */ var recompose_compose__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(recompose_compose__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var recompose_branch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! recompose/branch */ "recompose/branch");
+/* harmony import */ var recompose_branch__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(recompose_branch__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var recompose_renderComponent__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! recompose/renderComponent */ "recompose/renderComponent");
+/* harmony import */ var recompose_renderComponent__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(recompose_renderComponent__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! next/router */ "./node_modules/next/router.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_5__);
+
+
+
+
+
+
+
+var isLoading = function isLoading(props) {
+  return props.data.loading;
+};
+
+var renderWhileLoading = function renderWhileLoading(component) {
+  return recompose_branch__WEBPACK_IMPORTED_MODULE_3___default()(isLoading, recompose_renderComponent__WEBPACK_IMPORTED_MODULE_4___default()(component));
+};
+
+var withQueryOptions = function withQueryOptions(query) {
+  var _options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+  return function (Component) {
+    return recompose_compose__WEBPACK_IMPORTED_MODULE_2___default()(next_router__WEBPACK_IMPORTED_MODULE_5__["withRouter"], Object(react_apollo__WEBPACK_IMPORTED_MODULE_1__["graphql"])(query, {
+      skip: function skip(_ref) {
+        var _skip = _ref.skip;
+        return !!_skip;
+      },
+      options: function options(_ref2) {
+        var router = _ref2.router;
+        var language = router.query.language || 'en';
+        var parentResults = _options || {};
+        return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, parentResults, {
+          variables: Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({
+            language: language
+          }, parentResults.variables)
+        });
+      }
+    }))(Component);
+  };
+};
+var withQueryOptionsAndLoading = function withQueryOptionsAndLoading(query) {
+  var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+  return function (Component) {
+    return recompose_compose__WEBPACK_IMPORTED_MODULE_2___default()(withQueryOptions(query, options), renderWhileLoading(function () {
+      return null;
+    }))(Component);
+  };
+};
 
 /***/ }),
 
@@ -1848,6 +2038,17 @@ module.exports = require("apollo-boost");
 
 /***/ }),
 
+/***/ "core-js/library/fn/map":
+/*!*****************************************!*\
+  !*** external "core-js/library/fn/map" ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("core-js/library/fn/map");
+
+/***/ }),
+
 /***/ "core-js/library/fn/object/assign":
 /*!***************************************************!*\
   !*** external "core-js/library/fn/object/assign" ***!
@@ -1870,6 +2071,17 @@ module.exports = require("core-js/library/fn/object/create");
 
 /***/ }),
 
+/***/ "core-js/library/fn/object/define-properties":
+/*!**************************************************************!*\
+  !*** external "core-js/library/fn/object/define-properties" ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("core-js/library/fn/object/define-properties");
+
+/***/ }),
+
 /***/ "core-js/library/fn/object/define-property":
 /*!************************************************************!*\
   !*** external "core-js/library/fn/object/define-property" ***!
@@ -1878,6 +2090,17 @@ module.exports = require("core-js/library/fn/object/create");
 /***/ (function(module, exports) {
 
 module.exports = require("core-js/library/fn/object/define-property");
+
+/***/ }),
+
+/***/ "core-js/library/fn/object/freeze":
+/*!***************************************************!*\
+  !*** external "core-js/library/fn/object/freeze" ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("core-js/library/fn/object/freeze");
 
 /***/ }),
 
@@ -1980,6 +2203,28 @@ module.exports = require("core-js/library/fn/symbol/iterator");
 
 /***/ }),
 
+/***/ "graphql-tag":
+/*!******************************!*\
+  !*** external "graphql-tag" ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("graphql-tag");
+
+/***/ }),
+
+/***/ "https":
+/*!************************!*\
+  !*** external "https" ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("https");
+
+/***/ }),
+
 /***/ "isomorphic-unfetch":
 /*!*************************************!*\
   !*** external "isomorphic-unfetch" ***!
@@ -2065,6 +2310,83 @@ module.exports = require("react-apollo");
 /***/ (function(module, exports) {
 
 module.exports = require("react-is");
+
+/***/ }),
+
+/***/ "recompose/branch":
+/*!***********************************!*\
+  !*** external "recompose/branch" ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("recompose/branch");
+
+/***/ }),
+
+/***/ "recompose/compose":
+/*!************************************!*\
+  !*** external "recompose/compose" ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("recompose/compose");
+
+/***/ }),
+
+/***/ "recompose/getContext":
+/*!***************************************!*\
+  !*** external "recompose/getContext" ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("recompose/getContext");
+
+/***/ }),
+
+/***/ "recompose/renderComponent":
+/*!********************************************!*\
+  !*** external "recompose/renderComponent" ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("recompose/renderComponent");
+
+/***/ }),
+
+/***/ "recompose/setDisplayName":
+/*!*******************************************!*\
+  !*** external "recompose/setDisplayName" ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("recompose/setDisplayName");
+
+/***/ }),
+
+/***/ "recompose/withContext":
+/*!****************************************!*\
+  !*** external "recompose/withContext" ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("recompose/withContext");
+
+/***/ }),
+
+/***/ "recompose/withProps":
+/*!**************************************!*\
+  !*** external "recompose/withProps" ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("recompose/withProps");
 
 /***/ }),
 

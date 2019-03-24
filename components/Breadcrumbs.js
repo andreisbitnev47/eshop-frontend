@@ -1,13 +1,14 @@
-import Link from 'next/link'
+import Link from './Link';
+import A from './A';
 
 export const Breadcrumbs = ({ breadcrumbs }) => (
-    <p class="breadcrumbs">
+    <p className="breadcrumbs">
         {breadcrumbs.map((breadcrumb, index) => {
             if (breadcrumb.url) {
                 return (
-                    <span class="mr-2" key={index}>
+                    <span className="mr-2" key={index}>
                         <Link href={breadcrumb.url}>
-                            <a href="#">{breadcrumb.title}</a>
+                            <A href={breadcrumb.url}>{breadcrumb.title}</A>
                         </Link>
                     </span> 
                 );

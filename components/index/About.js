@@ -1,3 +1,7 @@
+import { Translate } from '../Translate';
+import Link from '../Link';
+import A from '../A';
+
 export const About = ({ img, title, mainText }) => (
     <section className="ftco-section ftco-no-pb ftco-no-pt bg-light">
         <div className="container">
@@ -18,7 +22,13 @@ export const About = ({ img, title, mainText }) => (
                             <p key={cnt}>{ paragpraph }</p>
                         ))}
                     </div>
-                    <p style={{ textAlign: 'center' }}><a href="#" className="btn btn-primary py-3 px-5">Read more</a></p>
+                    <p style={{ textAlign: 'center' }}>
+                        <Link href="/about">
+                            <A href="/about" classNames="btn btn-primary py-3 px-5">
+                                <Translate id="main.read_more"/>
+                            </A>
+                        </Link>
+                    </p>
                 </div>
             </div>
         </div>

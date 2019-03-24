@@ -2,6 +2,7 @@ import { Query } from 'react-apollo'
 import compose from 'recompose/compose';
 import { withRouter } from 'next/router'
 import gql from 'graphql-tag'
+import { Translate } from '../Translate';
 
 export const productQuery = gql`
   query productQuery($handle: String!) {
@@ -64,7 +65,7 @@ const InnerComponent = ({ router }) => (
                                     </span>
                                 </div>
                             </div>
-                            <p><a href="cart.html" className="btn btn-primary py-3 px-5">Add to Cart</a></p>
+                            <p><a href="cart.html" className="btn btn-primary py-3 px-5"><Translate id="main.add_to_cart"/></a></p>
                         </div>
                     </div>
                 </div>
