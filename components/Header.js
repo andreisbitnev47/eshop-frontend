@@ -11,7 +11,19 @@ const Header = ({ router, menuOpen, toggleMenuOpen }) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light scrolled awake" id="ftco-navbar">
       <div className="container">
-        <a className="navbar-brand" href="index.html">Modist</a>
+      <Link href="/">
+        <A href="/">
+          <div style={{ display: 'flex', height: '100%', justifyContent: 'center', alignItems: 'center'}}>
+            <div style={{
+              backgroundImage: 'url(/static/img/logo.png)',
+              backgroundSize: 'contain',
+              backgroundRepeat: 'no-repeat',
+              height: '60px',
+              width: '150px',
+            }}></div>
+          </div>
+        </A>
+      </Link>
         <button onClick={() => { toggleMenuOpen(!menuOpen) }} className="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="oi oi-menu"></span> Menu
         </button>
