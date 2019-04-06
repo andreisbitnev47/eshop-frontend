@@ -7,6 +7,7 @@ import classNames from 'classnames';
 import { Translate } from './Translate';
 
 const Header = ({ router, menuOpen, toggleMenuOpen }) => {
+  console.log(JSON.stringify(router));
   return (
     <nav className="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light scrolled awake" id="ftco-navbar">
       <div className="container">
@@ -22,8 +23,60 @@ const Header = ({ router, menuOpen, toggleMenuOpen }) => {
             <Link href="/about"><li className="nav-item"><A href="/about" classNames={classNames('nav-link', {active: router.pathname === '/about'})}><Translate id="navigation.about"/></A></li></Link>
             <Link href="/contact"><li className="nav-item"><A href="/contact" classNames={classNames('nav-link', {active: router.pathname === '/contact'})}><Translate id="navigation.contact"/></A></li></Link>
           </ul>
+          <div className="languageBarContainer">
+            <ul className="languageBar">
+                <li>
+                  <a href={`/en${router.route === '/index' ? '/' : router.route}`}>
+                    <div style={{ backgroundImage: 'url(/static/img/en.svg)'}} classNames={classNames({active: router.query.language === 'en'})}></div>
+                  </a>
+                </li>
+                <li>
+                  <a href={`/est${router.route === '/index' ? '/' : router.route}`}>
+                    <div style={{ backgroundImage: 'url(/static/img/est.svg)'}} classNames={classNames({active: router.query.language === 'est'})}></div>
+                  </a>
+                </li>
+                <li>
+                  <a href={`/rus${router.route === '/index' ? '/' : router.route}`}>
+                    <div style={{ backgroundImage: 'url(/static/img/rus.svg)'}} classNames={classNames({active: router.query.language === 'rus'})}></div>
+                  </a>
+                </li>
+              {/* <li><img src={`${process.env.FRONTEND_URL}/static/img/en.svg`} style={{ height: '40px', width: '40px' }}/></li> */}
+            </ul>
+          </div>
         </div>
       </div>
+      <style jsx>{`
+        .languageBarContainer {
+          display: flex;
+          height: 100%;
+          justify-content: center;
+          align-items: center;
+        }
+        .languageBar {
+          list-style-type: none;
+          display: flex;
+          margin: 0;
+        }
+        .languageBar li {
+          display: inline;
+          margin-left: 10px;
+        }
+        .languageBar div {
+          height: 15px;
+          width: 30px;
+          background-size: cover;
+          background-position: center;
+        }
+        .languageBar li a .active {
+          height: 17px;
+          width: 34px;
+        }
+        @media (max-width: 600px) {
+          .asd {
+            background: blue;
+          }
+        }
+      `}</style>
     </nav>
   );
 }

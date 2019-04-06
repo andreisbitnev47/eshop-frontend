@@ -7,7 +7,7 @@ export const ProductListItem = ({ id, title, img, price, handle }) => (
     <div className="col-sm col-md-6 col-lg-3">
         <div className="product">
         <Link as={`/shop/${handle}`} href={`/product?handle=${handle}`}>
-            <h3><A href={`/shop/${handle}`} classNames="img-prod"><img className="img-fluid" src={img} alt="Colorlib Template" /></A></h3>
+            <h3><A href={`/shop/${handle}`} classNames="img-prod"><img className="img-fluid" src={`${process.env.BACKEND_URL}${img}`} alt="Colorlib Template" /></A></h3>
         </Link>
         <div className="text py-3 px-3">
             <Link as={`/shop/${handle}`} href={`/product?handle=${handle}`}>
