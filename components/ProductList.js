@@ -1,23 +1,25 @@
 import { Query } from 'react-apollo'
-import gql from 'graphql-tag'
-import ErrorMessage from './ErrorMessage'
+import { withRouter } from 'next/router';
+import compose from 'recompose/compose';
+import gql from 'graphql-tag';
+import ErrorMessage from './ErrorMessage';
 import { ProductListItem }  from './ProductListItem';
 
 export const productsQuery = gql`
-  query products {
+  query products($language: String!) {
     products {
       id
       handle
-      title(language: "en")
+      title(language: $language)
       price
       imgSmall
     }
   }
 `
 
-export const ProductList = () => {
+const InnerComponent = ({ router }) => {
   return (
-    <Query query={productsQuery}>
+    <Query query={productsQuery} variables={{ language: router.query.language }}>
       {({ loading, error, data: { products }, fetchMore }) => {
         if (error) return <ErrorMessage message='Error loading posts.' />
         if (loading) return <div>Loading</div>
@@ -35,3 +37,7 @@ export const ProductList = () => {
     </Query>
   )
 }
+
+export const ProductList = compose(
+  withRouter,
+)(InnerComponent);

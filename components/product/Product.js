@@ -5,20 +5,20 @@ import gql from 'graphql-tag'
 import { Translate } from '../Translate';
 
 export const productQuery = gql`
-  query productQuery($handle: String!) {
+  query productQuery($handle: String!, $language: String!) {
     productByHandle(handle: $handle) {
       id
       handle
-      title(language: "en")
+      title(language: $language)
       price
       imgBig
-      descriptionLong(language: "en")
+      descriptionLong(language: $language)
     }
   }
 `
 
 const InnerComponent = ({ router }) => (
-    <Query query={productQuery} variables={{ handle: router.query.handle }}>
+    <Query query={productQuery} variables={{ handle: router.query.handle, language: router.query.language }}>
       {({ loading, error, data: { productByHandle }, fetchMore }) => {
         if (error) return <ErrorMessage message='Error loading posts.' />
         if (loading) return <div>Loading</div>

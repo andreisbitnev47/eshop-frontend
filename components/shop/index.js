@@ -1,5 +1,7 @@
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
+import compose from 'recompose/compose';
+import { withRouter } from 'next/router'
 import ErrorMessage from '../ErrorMessage'
 import get from 'lodash/get';
 import { Products } from './Products';
@@ -7,20 +9,20 @@ import { MainImage } from './MainImage';
 import constants from '../../constants';
 
 export const shopContentQuery = gql`
-  query shopContentQuery {
+  query shopContentQuery($language: String!) {
     contnetsByGroup(group: "shop") {
       id
       handle
       group
-      title(language: "en")
-      img(language: "en") {
+      title(language: $language)
+      img(language: $language) {
         url
       }
     }
   }
 `
-export default () => (
-    <Query query={shopContentQuery}>
+const InnerComponent = ({ router }) => (
+    <Query query={shopContentQuery} variables={{ language: router.query.language }}>
       {({ loading, error, data: { contnetsByGroup }, fetchMore }) => {
         if (error) return <ErrorMessage message='Error loading posts.' />
         if (loading) return <div>Loading</div>
@@ -45,3 +47,7 @@ export default () => (
       }}
     </Query>
 );
+
+export default compose(
+  withRouter,
+)(InnerComponent);

@@ -1,5 +1,7 @@
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
+import compose from 'recompose/compose';
+import { withRouter } from 'next/router'
 import ErrorMessage from '../ErrorMessage'
 import get from 'lodash/get';
 import { Products } from './Products';
@@ -8,23 +10,23 @@ import { About } from './About';
 import constants from '../../constants';
 
 export const indexContentQuery = gql`
-  query indexContentQuery {
+  query indexContentQuery($language: String!) {
     contnetsByGroup(group: "index") {
       id
       handle
       group
-      title(language: "en")
-      subTitle(language: "en")
-      paragraph(language: "en")
-      img(language: "en") {
+      title(language: $language)
+      subTitle(language: $language)
+      paragraph(language: $language)
+      img(language: $language) {
         alt
         url
       }
     }
   }
 `
-export default () => (
-    <Query query={indexContentQuery}>
+const InnerComponent = ({ router }) => (
+    <Query query={indexContentQuery} variables={{ language: router.query.language }}>
       {({ loading, error, data: { contnetsByGroup }, fetchMore }) => {
         if (error) return <ErrorMessage message='Error loading posts.' />
         if (loading) return <div>Loading</div>
@@ -56,3 +58,7 @@ export default () => (
       }}
     </Query>
 );
+
+export default compose(
+  withRouter,
+)(InnerComponent);
