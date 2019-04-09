@@ -1,14 +1,11 @@
 import App from '../components/App';
-import Header from '../components/Header';
-import { Footer } from '../components/Footer';
-import Head from '../components/Head';
+import Layout from '../components/Layout';
 import ProductPage from '../components/product/index';
 
 export default () => (
   <App>
-    <Head title="Product"/>
-    <Header />
-    <ProductPage />
-    <Footer />
+    <Layout title="Product">
+      <ProductPage />
+    </Layout>
   </App>
 )

@@ -14,12 +14,10 @@ const Header = ({ router, menuOpen, toggleMenuOpen }) => {
       <Link href="/">
         <A href="/">
           <div style={{ display: 'flex', height: '100%', justifyContent: 'center', alignItems: 'center'}}>
-            <div style={{
+            <div id="logo" style={{
               backgroundImage: 'url(/static/img/logo.png)',
               backgroundSize: 'contain',
               backgroundRepeat: 'no-repeat',
-              height: '60px',
-              width: '150px',
             }}></div>
           </div>
         </A>
@@ -71,7 +69,7 @@ const Header = ({ router, menuOpen, toggleMenuOpen }) => {
         }
         .languageBar li {
           display: inline;
-          margin-left: 10px;
+          margin-right: 10px;
         }
         .languageBar div {
           height: 15px;
@@ -83,9 +81,31 @@ const Header = ({ router, menuOpen, toggleMenuOpen }) => {
           height: 17px;
           width: 34px;
         }
-        @media (max-width: 600px) {
-          .asd {
-            background: blue;
+        #logo {
+          height: 60px;
+          width: 150px;
+        }
+        @media only screen and (max-width: 980px) {
+          #logo {
+            height: 90px;
+            width: 225px;
+          }
+          .languageBarContainer {
+            justify-content: flex-start;
+          }
+          .languageBar {
+            padding-left: 0;
+            padding-top: 20px;
+            padding-bottom: 20px;
+          }
+          .languageBar div {
+            height: 30px;
+            width: 60px;
+            background-size: cover;
+            background-position: center;
+          }
+          .languageBar li {
+            margin-right: 25px;
           }
         }
       `}</style>

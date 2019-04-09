@@ -8,9 +8,9 @@ export const MainImage = ({ img, title, subTitle}) => (
             <h2><span>{subTitle}</span></h2>
           </div>
           <div className="mouse">
-                <a href="#" className="mouse-icon">
+                {/* <a href="#" className="mouse-icon">
                     <div className="mouse-wheel"><span className="ion-ios-arrow-down"></span></div>
-                </a>
+                </a> */}
             </div>
         </div>
       </div>
