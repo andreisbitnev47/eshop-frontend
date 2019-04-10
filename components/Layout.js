@@ -9,9 +9,12 @@ const Layout = (props) => (
             {props.children}
         <Footer />
         <style jsx global>{`
-            @media only screen and (max-width: 980px) {
+            .hero-wrap .slider-text h1 {
+                font-size: 70px;
+            }
+            @media only screen and (max-width: 991px) {
                 .ftco-navbar-light.scrolled .navbar-toggler {
-                    font-size: 36px;
+                    font-size: 36px !important;
                 }
                 .navbar-toggler {
                     padding-top: 8px;

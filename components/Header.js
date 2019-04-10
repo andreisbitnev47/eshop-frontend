@@ -85,7 +85,7 @@ const Header = ({ router, menuOpen, toggleMenuOpen }) => {
           height: 60px;
           width: 150px;
         }
-        @media only screen and (max-width: 980px) {
+        @media only screen and (max-width: 991px) {
           #logo {
             height: 90px;
             width: 225px;

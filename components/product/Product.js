@@ -78,7 +78,7 @@ const InnerComponent = ({ router }) => (
                             padding: 0;
                             width: 52px;
                         }
-                        @media only screen and (max-width: 980px) {
+                        @media only screen and (max-width: 991px) {
                             .product-details span button {
                                 width: 72px;
                                 height: 72px !important;

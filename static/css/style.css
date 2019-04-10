@@ -28,7 +28,7 @@
   --dark: #343a40;
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
-  --breakpoint-md: 768px;
+  --breakpoint-md: 979px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
   --font-family-sans-serif: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -7763,7 +7763,7 @@ h1, h2, h3, h4, h5,
 
 .img-2 {
   position: relative; }
-  @media (max-width: 980px) {
+  @media (max-width: 991px) {
     .img-2 {
       height: 500px;
       margin-bottom: 40px; } 
@@ -7789,7 +7789,7 @@ h1, h2, h3, h4, h5,
 
 .wrap-about {
   position: relative; }
-  @media (min-width: 980px) {
+  @media (min-width: 991px) {
     .wrap-about {
       padding-left: 6em; } }
   .wrap-about .heading-section-bold h2 {

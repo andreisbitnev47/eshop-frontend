@@ -50,7 +50,7 @@ const InnerComponent = ({ breadcrumbs }) => (
             }
         })}
         <style jsx>{`
-            @media only screen and (max-width: 980px) {
+            @media only screen and (max-width: 991px) {
                 .breadcrumbs {
                     font-size: 24px !important;
                 }
