@@ -31,7 +31,7 @@ const Header = ({ router, menuOpen, toggleMenuOpen }) => {
             <Link href="/"><li className="nav-item"><A href="/" classNames={classNames('nav-link', {active: router.pathname === '/'})}><Translate id="navigation.home"/></A></li></Link>
             <Link href="/shop"><li className="nav-item"><A href="/shop" classNames={classNames('nav-link', {active: router.pathname === '/shop'})}><Translate id="navigation.shop"/></A></li></Link>
             <Link href="/about"><li className="nav-item"><A href="/about" classNames={classNames('nav-link', {active: router.pathname === '/about'})}><Translate id="navigation.about"/></A></li></Link>
-            <Link href="/contact"><li className="nav-item"><A href="/contact" classNames={classNames('nav-link', {active: router.pathname === '/contact'})}><Translate id="navigation.contact"/></A></li></Link>
+            {/* <Link href="/contact"><li className="nav-item"><A href="/contact" classNames={classNames('nav-link', {active: router.pathname === '/contact'})}><Translate id="navigation.contact"/></A></li></Link> */}
           </ul>
           <div className="languageBarContainer">
             <ul className="languageBar">

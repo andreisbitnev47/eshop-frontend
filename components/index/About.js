@@ -6,9 +6,9 @@ export const About = ({ img, title, mainText }) => (
     <section className="ftco-section ftco-no-pb ftco-no-pt bg-light">
         <div className="container">
             <div className="row">
-                <div className="col-md-5 p-md-5 img img-2 d-flex justify-content-center align-items-center" style={{backgroundImage: `url(${process.env.BACKEND_URL}${img.url})`}}>
+                <div className="col-lg-5 img img-2 d-flex justify-content-center align-items-center" style={{backgroundImage: `url(${process.env.BACKEND_URL}${img.url})`, minHeight: '300px'}}>
                 </div>
-                <div className="col-md-7 py-5 wrap-about pb-md-5">
+                <div className="col-lg-7 py-5 wrap-about pb-md-5">
                     <div className="heading-section-bold mb-5 mt-md-5">
                         <div className="ml-md-0">
                             <h2 className="mb-4">{title}</h2>

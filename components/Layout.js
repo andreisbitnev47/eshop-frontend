@@ -44,6 +44,9 @@ const Layout = (props) => (
                 .content_paragraph {
                     font-size: 26px;
                 }
+                .hero-wrap.hero-bread {
+                    padding-top: 175px;
+                }
             }
         `}</style>
     </>

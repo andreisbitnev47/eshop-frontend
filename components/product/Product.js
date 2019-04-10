@@ -37,7 +37,7 @@ const InnerComponent = ({ router }) => (
                             <p className="price"><span>€{productByHandle.price}</span></p>
                             <p>{productByHandle.descriptionLong}</p>
                             <div className="row mt-4">
-                                <div className="col-md-6">
+                                {/* <div className="col-md-6">
                                     <div className="form-group d-flex">
                                         <div className="select-wrap">
                                             <div className="icon"><span className="ion-ios-arrow-down"></span></div>
@@ -49,18 +49,18 @@ const InnerComponent = ({ router }) => (
                                                 </select>
                                             </div>
                                         </div>
-                                </div>
+                                </div> */}
                                 <div className="w-100"></div>
-                                <div className="input-group col-md-6 d-flex mb-3">
+                                <div className="input-group col-md-6 d-flex mb-3 buttons">
                                     <span className="input-group-btn mr-2">
-                                        <button type="button" className="quantity-left-minus btn"  data-type="minus" data-field="">
-                                            <i className="ion-ios-remove"></i>
+                                        <button type="button" className="quantity-left-minus btn">
+                                            <i className="ion-ios-remove">-</i>
                                         </button>
                                     </span>
                                     <input type="text" id="quantity" name="quantity" className="form-control input-number" value="1" min="1" max="100"/>
                                     <span className="input-group-btn ml-2">
-                                        <button type="button" className="quantity-right-plus btn" data-type="plus" data-field="">
-                                            <i className="ion-ios-add"></i>
+                                        <button type="button" className="quantity-right-plus btn">
+                                            <i className="ion-ios-add">+</i>
                                         </button>
                                     </span>
                                 </div>
@@ -69,6 +69,46 @@ const InnerComponent = ({ router }) => (
                         </div>
                     </div>
                 </div>
+                <style jsx>{`
+                    {
+                        .product-details span button {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            padding: 0;
+                            width: 52px;
+                        }
+                        @media only screen and (max-width: 980px) {
+                            .product-details span button {
+                                width: 72px;
+                                height: 72px !important;
+                                font-size: 24px;
+                            }
+                            .product-details .form-control {
+                                height: 72px !important;
+                                font-size: 24px;
+                            }
+                            .buttons {
+                                margin-bottom: 24px !important;
+                            }
+                            .mr-2 {
+                                margin-right: 14px !important;
+                            }
+                            .ml-2 {
+                                margin-left: 14px !important;
+                            }
+                            h3 {
+                                font-size: 36px;
+                            }
+                            .product-details .price span {
+                                font-size: 40px;
+                            }
+                            p {
+                                font-size: 28px;
+                            }
+                        }
+                    }
+                `}</style>
             </section>
         )
       }}

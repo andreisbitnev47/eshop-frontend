@@ -4,17 +4,18 @@ import compose from 'recompose/compose';
 import { withRouter } from 'next/router'
 import ErrorMessage from '../ErrorMessage'
 import get from 'lodash/get';
-import { Products } from './Products';
 import { MainImage } from './MainImage';
+import { About } from './About';
 import constants from '../../constants';
 
-export const shopContentQuery = gql`
-  query shopContentQuery($language: String!) {
-    contnetsByGroup(group: "shop") {
+export const productContentQuery = gql`
+  query productContentQuery($language: String!) {
+    contnetsByGroup(group: "about") {
       id
       handle
       group
       title(language: $language)
+      paragraph(language: $language)
       img(language: $language) {
         url
       }
@@ -22,7 +23,7 @@ export const shopContentQuery = gql`
   }
 `
 const InnerComponent = ({ router }) => (
-    <Query query={shopContentQuery} variables={{ language: router.query.language }}>
+    <Query query={productContentQuery} variables={{ language: router.query.language }}>
       {({ loading, error, data: { contnetsByGroup }, fetchMore }) => {
         if (error) return <ErrorMessage message='Error loading posts.' />
         if (loading) return <div>Loading</div>
@@ -31,17 +32,22 @@ const InnerComponent = ({ router }) => (
             return acc;
         }, {});
         const mainImageContent = {
-            img: get(contentObj, 'shop_mainImage.img[0]', constants.unavailableImage),
-            title: get(contentObj, 'shop_mainImage.title[0]', ''),
+            img: get(contentObj, 'about_mainImage.img[0]', constants.unavailableImage),
+            title: get(contentObj, 'about_mainImage.title[0]', ''),
+        }
+        const aboutContent = {
+            imgs: get(contentObj, 'about_about.img', [constants.unavailableImage]),
+            title: get(contentObj, 'about_about.title[0]', ''),
+            paragraphs: get(contentObj, 'about_about.paragraph', ''),
         } 
         const breadcrumbs = [
             {url: '/', id: 'navigation.home'},
-            {id: 'navigation.shop'},
+            {id: 'navigation.about'},
         ]
         return (
             <>
                 <MainImage img={mainImageContent.img} title={mainImageContent.title} breadcrumbs={breadcrumbs}/>
-                <Products/>
+                <About imgs={aboutContent.imgs} title={mainImageContent.title} breadcrumbs={breadcrumbs} paragraphs={aboutContent.paragraphs}/>
             </>
         )
       }}
@@ -49,5 +55,5 @@ const InnerComponent = ({ router }) => (
 );
 
 export default compose(
-  withRouter,
+  withRouter
 )(InnerComponent);

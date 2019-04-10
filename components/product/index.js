@@ -35,9 +35,9 @@ const InnerComponent = ({ router }) => (
             title: get(contentObj, 'product_mainImage.title[0]', ''),
         } 
         const breadcrumbs = [
-            {url: '/', title: 'Home'},
-            {url: '/shop', title: 'Shop'},
-            {title: 'Product'},
+            {url: '/', id: 'navigation.home'},
+            {url: '/shop', id: 'navigation.shop'},
+            {dynamic: 'product'},
         ]
         return (
             <>
