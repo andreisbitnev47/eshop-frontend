@@ -47,7 +47,7 @@ const InnerComponent = ({ router }) => (
         return (
             <>
                 <MainImage img={mainImageContent.img} title={mainImageContent.title} breadcrumbs={breadcrumbs}/>
-                <About imgs={aboutContent.imgs} title={mainImageContent.title} breadcrumbs={breadcrumbs} paragraphs={aboutContent.paragraphs}/>
+                <About imgs={aboutContent.imgs} title={aboutContent.title} breadcrumbs={breadcrumbs} paragraphs={aboutContent.paragraphs}/>
             </>
         )
       }}

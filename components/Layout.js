@@ -12,7 +12,19 @@ const Layout = (props) => (
             .hero-wrap .slider-text h1 {
                 font-size: 70px;
             }
+            .desktop-hide, .desktop-hide-flex {
+                display: none !important;
+            }
             @media only screen and (max-width: 991px) {
+                .mobile-hide {
+                    display: none !important;
+                }
+                .desktop-hide {
+                    display: block !important;
+                }
+                .desktop-hide-flex {
+                    display: flex !important;
+                }
                 .ftco-navbar-light.scrolled .navbar-toggler {
                     font-size: 36px !important;
                 }
