@@ -31,7 +31,7 @@ const InnerComponent = ({ breadcrumbs }) => (
                 return (
                     <span className="mr-2" key={index}>
                         <Link href={breadcrumb.url}>
-                            <A href={breadcrumb.url}>
+                            <A href={breadcrumb.url} styles={{ color: '#f2f2f2' }}>
                                 {breadcrumb.id ?
                                     <Translate id={breadcrumb.id}/> :
                                     breadcrumb.title}
@@ -41,7 +41,7 @@ const InnerComponent = ({ breadcrumbs }) => (
                 );
             } else {
                 return (
-                    <span key={index}>
+                    <span key={index} style={{ color: 'white' }}>
                         {breadcrumb.id ?
                             <Translate id={breadcrumb.id}/> :
                             breadcrumb.title}
