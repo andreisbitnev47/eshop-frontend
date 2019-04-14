@@ -2,6 +2,7 @@ import compose from 'recompose/compose';
 import lifecycle from 'recompose/lifecycle';
 import withState from 'recompose/withState';
 import { Query } from 'react-apollo'
+import ErrorMessage from '../ErrorMessage'
 import { withRouter } from 'next/router'
 import gql from 'graphql-tag'
 import Big from 'big.js';
@@ -117,7 +118,9 @@ const Cart = ({ products, items }) => {
                             <span>€{(items.reduce((acc, item) => Big(item.amount || 0).times(Big(products[item.id].price)).plus(acc), Big('0'))).toFixed(2)}</span>
                         </p>
                     </div>
-                    <p className="text-center"><a href="checkout.html" className="btn btn-primary py-3 px-4"><Translate id="cart.proceed_to_checkout"/></a></p>
+                    <p className="text-center">
+                        <Link href="/checkout"><A href="/checkout" classnames="btn btn-primary py-3 px-4"><Translate id="cart.proceed_to_checkout"/></A></Link>
+                    </p>
                 </div>
             </div>
         </div>
