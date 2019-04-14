@@ -16,7 +16,7 @@ export const Products = ({ title, subTitle }) => (
         <ProductList />
         <p style={{ textAlign: 'center' }}>
             <Link href="/shop">
-                <A href="/shop" classNames="btn btn-primary py-3 px-5">
+                <A href="/shop" classnames="btn btn-primary py-3 px-5">
                     <Translate id="main.go_to_shop"/>
                 </A>
             </Link>

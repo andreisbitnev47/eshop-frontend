@@ -61,6 +61,12 @@ app
       app.render(req, res, actualPage, queryParams)
     });
 
+    server.get('/:language/cart', (req, res) => {
+      const actualPage = '/cart'
+      const queryParams = { language: req.params.language }
+      app.render(req, res, actualPage, queryParams)
+    });
+
     server.get('/:language/', (req, res) => {
       const actualPage = '/index'
       const queryParams = { language: req.params.language }

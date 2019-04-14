@@ -10,6 +10,6 @@ const InnerComponent = ({ transLatedtext }) => {
 export const Translate = compose(
     withtranslations,
     withProps(({ translations, id }) => {
-        return { transLatedtext: translations.get(id) }
+        return { transLatedtext: translations.get(id) || id }
     })
 )(InnerComponent)

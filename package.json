@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "apollo-boost": "^0.1.16",
+    "big.js": "^5.2.2",
     "classnames": "^2.2.6",
     "cookie-parser": "^1.4.4",
     "dotenv": "^6.2.0",
@@ -20,7 +21,8 @@
     "react": "16.8.4",
     "react-apollo": "^2.1.11",
     "react-dom": "16.8.4",
-    "recompose": "^0.30.0"
+    "recompose": "^0.30.0",
+    "tiny-emitter": "^2.1.0"
   },
   "author": "",
   "license": "ISC"

@@ -21,7 +21,7 @@ export const About = ({ img, title, mainText }) => (
                     </div>
                     <p style={{ textAlign: 'center' }}>
                         <Link href="/about">
-                            <A href="/about" classNames="btn btn-primary py-3 px-5">
+                            <A href="/about" classnames="btn btn-primary py-3 px-5">
                                 <Translate id="main.read_more"/>
                             </A>
                         </Link>

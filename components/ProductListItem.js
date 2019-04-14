@@ -2,13 +2,14 @@
 import Link from './Link';
 import A from './A';
 import { Translate } from './Translate';
+import cart from '../utils/shoppingCart';
 
 export const ProductListItem = ({ id, title, img, price, handle }) => (
     <div className="col-sm col-md-6 col-lg-3">
         <div className="product">
         <Link as={`/shop/${handle}`} href={`/product?handle=${handle}`}>
             <h3>
-                <A href={`/shop/${handle}`} classNames="img-prod">
+                <A href={`/shop/${handle}`} classnames="img-prod">
                     <div className="itemImg" style={{backgroundImage: `url(${process.env.BACKEND_URL}${img})`}}></div>
                 </A>
             </h3>
@@ -33,8 +34,10 @@ export const ProductListItem = ({ id, title, img, price, handle }) => (
             </div>
             <hr/>
             <p className="bottom-area d-flex">
-                <a href="#" className="add-to-cart"><span><Translate id="main.add_to_cart"/> <i className="ion-ios-add ml-1"></i></span></a>
-                <a href="#" className="ml-auto"><span><i className="ion-ios-heart-empty"></i></span></a>
+                <a href="#" className="add-to-cart" onClick={(e) => {e.preventDefault(); cart.addItemAmount(id, 1)}}>
+                    <Translate id="main.add_to_cart"/>
+                    <span style={{ fontWeight: 'bold', marginLeft: '5px' }}>+</span>
+                </a>
             </p>
         </div>
         </div>
