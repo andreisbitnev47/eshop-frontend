@@ -30,7 +30,7 @@ const InnerComponent = ({ router }) => (
             return acc;
         }, {});
         const mainImageContent = {
-            img: get(contentObj, 'cart_mainImage.img[0]', constants.unavailableImage),
+            img: get(contentObj, 'checkout_mainImage.img[0]', constants.unavailableImage),
         }
         const breadcrumbs = [
             {url: '/', id: 'navigation.home'},

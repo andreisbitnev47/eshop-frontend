@@ -52,3 +52,11 @@ const InnerComponent = ({ router }) => (
 export default compose(
   withRouter
 )(InnerComponent);
+
+// const trs = document.getElementsByClassName('table_on_white equal_columns')[0].children[0].children
+// var res = Array.from(trs).reduce((acc, tr) => {
+//   if (tr.children && tr.children[0] && tr.children[0].textContent) {
+//    return acc + tr.children[0].textContent + ' ';
+//   }
+//   return acc;
+//   }, '');
