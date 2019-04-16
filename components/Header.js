@@ -22,18 +22,24 @@ const Header = ({ router, menuOpen, toggleMenuOpen }) => {
           </div>
         </A>
       </Link>
-        <button onClick={() => { toggleMenuOpen(!menuOpen) }} className="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="oi oi-menu"></span> Menu
-        </button>
-
+        <div className="buttonsCotainer">
+          <div className="desktop-hide">
+            <A href="/cart" classnames="nav-link">
+              <ShoppingCart />
+            </A>
+          </div>
+          <button onClick={() => { toggleMenuOpen(!menuOpen) }} className="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <img src="/static/img/menu.svg" className="menuIcon"/>
+          </button>
+        </div>
         <div className={classNames('collapse', 'navbar-collapse', { show: menuOpen })} id="ftco-nav">
           <ul className="navbar-nav ml-auto">
             <Link href="/"><li className="nav-item"><A href="/" classnames={classNames('nav-link', {active: router.pathname === '/'})}><Translate id="navigation.home"/></A></li></Link>
             <Link href="/shop"><li className="nav-item"><A href="/shop" classnames={classNames('nav-link', {active: router.pathname === '/shop'})}><Translate id="navigation.shop"/></A></li></Link>
             <Link href="/about"><li className="nav-item"><A href="/about" classnames={classNames('nav-link', {active: router.pathname === '/about'})}><Translate id="navigation.about"/></A></li></Link>
             <Link href="/cart">
-              <li className="nav-item">
-                <A href="/cart" classnames={classNames('nav-link')}>
+              <li className="nav-item mobile-hide">
+                <A href="/cart" classnames="nav-link">
                   <ShoppingCart />
                 </A>
               </li>
@@ -63,6 +69,14 @@ const Header = ({ router, menuOpen, toggleMenuOpen }) => {
         </div>
       </div>
       <style jsx>{`
+        .buttonsCotainer {
+          display: flex;
+        }
+        .menuIcon {
+          width: 36px;
+          height: 36px;
+          margin-left: 20px;
+        }
         .languageBarContainer {
           display: flex;
           height: 100%;
@@ -92,7 +106,19 @@ const Header = ({ router, menuOpen, toggleMenuOpen }) => {
           height: 60px;
           width: 150px;
         }
+        .mobile-hide {
+          display: block
+        }
+        .desktop-hide {
+          display: none;
+        }
         @media only screen and (max-width: 991px) {
+          .mobile-hide {
+            display: none;
+          }
+          .desktop-hide {
+            display: block;
+          }
           #logo {
             height: 90px;
             width: 225px;

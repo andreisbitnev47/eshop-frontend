@@ -45,7 +45,7 @@ function addItemAmount(id, amount) {
     const cart = getAll();
     const item = cart.find(item => item.id === id);
     if (item) {
-        item.amount += amount;
+        item.amount += Math.abs(parseInt(amount)) || 1;
     } else {
         cart.push({ id, amount });
     }
@@ -69,8 +69,15 @@ function removeItem(id) {
     updateStorage(cart);
 }
 
+function checkAmount(amount) {
+    if (parseInt(amount) < 0 || isNaN(parseInt(amount))) {
+        return 0
+    }
+    return parseInt(amount)
+}
+
 function clearCart() {
     getWindow().localStorage.setItem('shoppingCart', JSON.stringify([]));
 }
 
-export default { getAll, updateStorage, addItemAmount, removeItemAmount, removeItem, clearCart, updateItems, emitter, updateItemAmount, getAllClean };
+export default { checkAmount, getAll, updateStorage, addItemAmount, removeItemAmount, removeItem, clearCart, updateItems, emitter, updateItemAmount, getAllClean };

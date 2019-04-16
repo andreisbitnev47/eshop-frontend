@@ -9,7 +9,13 @@ const InnerComponent = ({ transLatedtext }) => {
 
 export const Translate = compose(
     withtranslations,
-    withProps(({ translations, id }) => {
-        return { transLatedtext: translations.get(id) || id }
+    withProps(({ translations, id, variables }) => {
+        let transLatedtext = translations.get(id) || id;
+        if (variables) {
+            Object.keys.forEach((key) => {
+                transLatedtext = transLatedtext.split(`{{${key}}}`).join(variables.key);
+            });
+        }
+        return { transLatedtext }
     })
 )(InnerComponent)

@@ -27,8 +27,8 @@ const InnerComponent = ({ cartItems }) => (
                 const itemIds = [];
                 products.forEach(product => { itemPrices[product.id] = product.price; itemIds.push(product.id) });
                 const updatedCart = cart.updateItems(itemIds);
-                const amount = updatedCart.reduce((acc, item) => acc.plus(Big(item.amount || 0)), Big('0'));
-                const price = updatedCart.reduce((acc, item) => Big(item.amount || 0).times(itemPrices[item.id]).plus(acc), Big('0'));
+                const amount = updatedCart.reduce((acc, item) => acc.plus(Big(cart.checkAmount(item.amount))), Big('0'));
+                const price = updatedCart.reduce((acc, item) => Big(cart.checkAmount(item.amount)).times(itemPrices[item.id]).plus(acc), Big('0'));
                 
                 return <Cart amount={amount.toFixed(0)} price={price.toFixed(2)} />;
             }}
@@ -57,6 +57,20 @@ const Cart = ({ amount, price }) => (
             }
             .cartPrice {
                 margin-left: 5px;
+            }
+            @media only screen and (max-width: 991px) {
+                .cartIcon {
+                    width: 24px;
+                    height: 24px;
+                    margin-right: 9px;
+                }
+                .cartAmount {
+                    font-size: 24px;
+                }
+                .cartPrice {
+                    margin-left: 9px;
+                    font-size: 24px;
+                }
             }
         }
       `}</style>

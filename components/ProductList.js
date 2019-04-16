@@ -12,7 +12,8 @@ export const productsQuery = gql`
       handle
       title(language: $language)
       price
-      imgSmall
+      imgBig
+      descriptionShort(language: $language)
     }
   }
 `
@@ -27,8 +28,8 @@ const InnerComponent = ({ router }) => {
         return (
           <div className="container-fluid">
             <div className="row">
-              {products.map(({ id, title, price, imgSmall, handle }) => (
-                <ProductListItem key={id} id={id} title={title} price={price} img={imgSmall} handle={handle}/>
+              {products.map(({ id, title, price, imgBig, handle, descriptionShort }) => (
+                <ProductListItem key={id} id={id} title={title} price={price} img={imgBig[0]} handle={handle} description={descriptionShort}/>
               ))}
             </div>
           </div>

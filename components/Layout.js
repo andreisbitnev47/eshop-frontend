@@ -29,7 +29,6 @@ const Layout = (props) => (
                     font-size: 36px !important;
                 }
                 .navbar-toggler {
-                    padding-top: 8px;
                     padding-bottom: 4px;
                 }
                 .ftco-navbar-light .navbar-nav > .nav-item > .nav-link {

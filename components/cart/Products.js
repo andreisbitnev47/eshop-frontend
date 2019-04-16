@@ -20,7 +20,7 @@ export const productsQuery = gql`
       title(language: $language)
       handle
       price
-      imgSmall
+      imgBig
       descriptionShort(language: $language)
     }
   }
@@ -56,6 +56,19 @@ const EmptyCart = () => (
                 </div>
             </div>
         </div>
+        <style jsx>{`
+            h2, p {
+                text-align: center;
+            }
+            @media only screen and (max-width: 991px) {
+                h2 {
+                    font-size: 46px;
+                }
+                p {
+                    font-size: 26px
+                }
+            }
+        `}</style>
     </section>
 );
 
@@ -79,7 +92,7 @@ const Cart = ({ products, items }) => {
                             <div className="product">
                                 <Link as={`/shop/${products[item.id].handle}`} href={`/product?handle=${products[item.id].handle}`}>
                                     <A href={`/shop/${products[item.id].handle}`} styles={{ display: 'block', width: '40%', margin: '20px'}}>
-                                        <div className="img" style={{ backgroundImage: `url(${process.env.BACKEND_URL}${products[item.id].imgSmall[0]})` }}></div>
+                                        <div className="img" style={{ backgroundImage: `url(${process.env.BACKEND_URL}${products[item.id].imgBig[0]})` }}></div>
                                     </A>
                                 </Link>
                                 <div className="text">
@@ -99,7 +112,7 @@ const Cart = ({ products, items }) => {
                                     cart.updateItemAmount(item.id, e.target.value) 
                                 }} className="quantity form-control input-number" value={item.amount}/>
                             </div>
-                            <div className="total">€{Big(item.amount || 0).times(Big(products[item.id].price)).toFixed(2) || 0}</div>
+                            <div className="total">€{Big(cart.checkAmount(item.amount)).times(Big(products[item.id].price)).toFixed(2) || 0}</div>
                             <div className="mobileHeader">
                                 <div className="price"><Translate id="cart.price"/></div>
                                 <div className="quantity"><Translate id="cart.quantity"/></div>
@@ -115,7 +128,7 @@ const Cart = ({ products, items }) => {
                     <div className="cart-total mb-3">
                         <p className="d-flex total-price">
                             <span><Translate id="cart.total"/></span>
-                            <span>€{(items.reduce((acc, item) => Big(item.amount || 0).times(Big(products[item.id].price)).plus(acc), Big('0'))).toFixed(2)}</span>
+                            <span>€{(items.reduce((acc, item) => Big(cart.checkAmount(item.amount)).times(Big(products[item.id].price)).plus(acc), Big('0'))).toFixed(2)}</span>
                         </p>
                     </div>
                     <p className="text-center">

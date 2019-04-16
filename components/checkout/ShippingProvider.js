@@ -60,7 +60,7 @@ const Select = ({ options, name, handleSelect }) => (
             <label for={name}><Translate id={`checkout.${name}`}/></label>
             <div class="select-wrap">
                 <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                <select name={name} class="form-control" onChange={(e) => {
+                <select required name={name} class="form-control" onChange={(e) => {
                     handleSelect(e.target.value); 
                 }}>
                     <option value=""></option>
