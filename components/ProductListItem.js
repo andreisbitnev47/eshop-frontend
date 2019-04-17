@@ -56,7 +56,7 @@ export const ProductListItem = ({ id, title, description, img, price, handle }) 
             }
             @media only screen and (max-width: 991px) {
                 .productDescription {
-                    font-size: 28px;
+                    
                 }
             }
         }

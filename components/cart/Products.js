@@ -65,12 +65,6 @@ const EmptyCart = () => (
                 text-align: center;
             }
             @media only screen and (max-width: 991px) {
-                h2 {
-                    font-size: 46px;
-                }
-                p {
-                    font-size: 26px
-                }
             }
         `}</style>
     </section>
@@ -211,7 +205,7 @@ const Cart = ({ products, items }) => {
             }
             @media only screen and (max-width: 991px) {
                 .product, .remove, .price, .quantity, .total {
-                    font-size: 26px;
+
                 }
                 .header {
                     display: none;
@@ -222,9 +216,9 @@ const Cart = ({ products, items }) => {
                 }
                 .productContainer {
                     flex-wrap: wrap;
-                    padding-bottom: 50px;
+                    padding-bottom: 30px;
                     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-                    margin-bottom: 50px;
+                    margin-bottom: 30px;
                 }
                 .product {
                     width: 100%;
@@ -261,10 +255,9 @@ const Cart = ({ products, items }) => {
                     line-height: 13px;
                 }
                 .total-price {
-                    font-size: 26px;
                 }
                 .cart-wrap {
-                    margin-top: 25px !important;
+                    margin-top: 10px !important;
                 }
             }
         `}</style>

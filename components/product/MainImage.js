@@ -11,7 +11,7 @@ export const MainImage = ({ img, title, breadcrumbs}) => (
         <style jsx>{`
             @media only screen and (max-width: 991px) {
                 .hero-wrap .slider-text .bread {
-                    font-size: 52px;
+                    
                 }
             }
         `}</style>

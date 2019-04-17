@@ -94,6 +94,9 @@ const InnerComponent = ({ router, itemAmount, updateItemAmount, addToCart, activ
                 </div>
                 <style jsx>{`
                     {
+                        section {
+                            padding-top: 50px !important;
+                        }
                         .active {
                             opacity: 1 !important;
                         }
@@ -133,34 +136,26 @@ const InnerComponent = ({ router, itemAmount, updateItemAmount, addToCart, activ
                                 display: flex !important;
                             }
                             .product-details {
-                                margin-top: 48px;
+                                margin-top: 30px;
                             }
                             .product-details span button {
-                                width: 72px;
-                                height: 72px !important;
-                                font-size: 24px;
                             }
                             .product-details .form-control {
-                                height: 72px !important;
-                                font-size: 24px;
                             }
                             .buttons {
-                                margin-bottom: 24px !important;
+                                margin-bottom: 20px !important;
                             }
                             .mr-2 {
-                                margin-right: 14px !important;
+                                margin-right: 10px !important;
                             }
                             .ml-2 {
-                                margin-left: 14px !important;
+                                margin-left: 10px !important;
                             }
                             h3 {
-                                font-size: 36px;
                             }
                             .product-details .price span {
-                                font-size: 40px;
                             }
                             p {
-                                font-size: 28px;
                             }
                         }
                     }

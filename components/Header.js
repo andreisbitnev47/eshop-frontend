@@ -28,7 +28,7 @@ const Header = ({ router, menuOpen, toggleMenuOpen }) => {
               <ShoppingCart />
             </A>
           </div>
-          <button onClick={() => { toggleMenuOpen(!menuOpen) }} className="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+          <button onClick={() => { toggleMenuOpen(!menuOpen) }} className="navbar-toggler menuIconButton" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <img src="/static/img/menu.svg" className="menuIcon"/>
           </button>
         </div>
@@ -72,10 +72,12 @@ const Header = ({ router, menuOpen, toggleMenuOpen }) => {
         .buttonsCotainer {
           display: flex;
         }
+        .menuIconButton {
+          padding: 0;
+        }
         .menuIcon {
-          width: 36px;
-          height: 36px;
-          margin-left: 20px;
+          width: 26px;
+          height: 26px;
         }
         .languageBarContainer {
           display: flex;
@@ -120,29 +122,27 @@ const Header = ({ router, menuOpen, toggleMenuOpen }) => {
             display: block;
           }
           #logo {
-            height: 90px;
-            width: 225px;
           }
           .languageBarContainer {
             justify-content: flex-start;
           }
           .languageBar {
             padding-left: 0;
-            padding-top: 20px;
-            padding-bottom: 20px;
+            padding-top: 10px;
+            padding-bottom: 10px;
           }
           .languageBar div {
-            height: 30px;
-            width: 60px;
+            height: 20px;
+            width: 40px;
             background-size: cover;
             background-position: center;
           }
           .languageBar li a .active {
-            height: 30px;
-            width: 60px;
+            height: 20px;
+            width: 40px;
           }
           .languageBar li {
-            margin-right: 25px;
+            margin-right: 17px;
           }
         }
       `}</style>

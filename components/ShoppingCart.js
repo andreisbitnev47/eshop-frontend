@@ -60,16 +60,10 @@ const Cart = ({ amount, price }) => (
             }
             @media only screen and (max-width: 991px) {
                 .cartIcon {
-                    width: 24px;
-                    height: 24px;
-                    margin-right: 9px;
                 }
                 .cartAmount {
-                    font-size: 24px;
                 }
                 .cartPrice {
-                    margin-left: 9px;
-                    font-size: 24px;
                 }
             }
         }

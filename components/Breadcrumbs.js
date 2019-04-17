@@ -55,7 +55,7 @@ const InnerComponent = ({ breadcrumbs }) => (
             }
             @media only screen and (max-width: 991px) {
                 .breadcrumbs {
-                    font-size: 28px !important;
+                    margin-top: 80px;
                 }
             }
         `}</style>

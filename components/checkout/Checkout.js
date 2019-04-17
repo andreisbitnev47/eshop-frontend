@@ -129,10 +129,10 @@ const OrderComplete = ({ router, orderId, email }) => (
                 }
                 @media only screen and (max-width: 991px) {
                     h2 {
-                        font-size: 46px;
+                        
                     }
                     p {
-                        font-size: 26px
+                        
                     }
                 }
             `}</style>
@@ -160,10 +160,10 @@ const EmptyCheckout = () => (
             }
             @media only screen and (max-width: 991px) {
                 h2 {
-                    font-size: 46px;
+                    
                 }
                 p {
-                    font-size: 26px
+                    
                 }
             }
         `}</style>
@@ -257,7 +257,7 @@ const CheckoutForm = ({
                 }
                 @media only screen and (max-width: 991px) {
                     .billing-heading {
-                        font-size: 30px;
+                        
                     }
                 }
             `}</style>
