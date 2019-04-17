@@ -4,6 +4,7 @@ import withState from 'recompose/withState';
 import { Query } from 'react-apollo'
 import ErrorMessage from '../ErrorMessage'
 import { withRouter } from 'next/router'
+import classNames from 'classnames';
 import gql from 'graphql-tag'
 import Big from 'big.js';
 import cart from '../../utils/shoppingCart';
@@ -21,7 +22,7 @@ export const productsQuery = gql`
       handle
       price
       imgBig
-      descriptionShort(language: $language)
+      descriptionLong(language: $language)
     }
   }
 `
@@ -57,6 +58,9 @@ const EmptyCart = () => (
             </div>
         </div>
         <style jsx>{`
+            section {
+                padding-top: 50px !important;
+            }
             h2, p {
                 text-align: center;
             }
@@ -91,7 +95,7 @@ const Cart = ({ products, items }) => {
                             </div>
                             <div className="product">
                                 <Link as={`/shop/${products[item.id].handle}`} href={`/product?handle=${products[item.id].handle}`}>
-                                    <A href={`/shop/${products[item.id].handle}`} styles={{ display: 'block', width: '40%', margin: '20px'}}>
+                                    <A href={`/shop/${products[item.id].handle}`} styles={{ display: 'block', minWidth: '40%', maxWidth: '40%', width: '40%', margin: '20px'}}>
                                         <div className="img" style={{ backgroundImage: `url(${process.env.BACKEND_URL}${products[item.id].imgBig[0]})` }}></div>
                                     </A>
                                 </Link>
@@ -103,7 +107,9 @@ const Cart = ({ products, items }) => {
                                             </A>
                                         </h3>
                                     </Link>
-                                    <p>{products[item.id].descriptionShort}</p>
+                                    <p>{products[item.id].descriptionLong.length > 100 ?
+                                        `${products[item.id].descriptionLong.slice(0, 97)} ...` :
+                                        products[item.id].descriptionLong}</p>
                                 </div>
                             </div>
                             <div className="price">€{Big(products[item.id].price).toFixed(2)}</div>
@@ -138,6 +144,9 @@ const Cart = ({ products, items }) => {
             </div>
         </div>
         <style jsx>{`
+            section {
+                padding-top: 50px !important;
+            }
             .product, .remove, .price, .quantity, .total {
                 display: flex;
                 align-items: center;
@@ -158,7 +167,9 @@ const Cart = ({ products, items }) => {
                 background: rgba(0, 0, 0, 0.03);
             }
             .product {
-                width: 300px;
+                width: 350px;
+                position: relative;
+                justify-content: flex-start;
             }
             .productContainer .product {
                 align-items: flex-start;
@@ -226,9 +237,6 @@ const Cart = ({ products, items }) => {
                     flex-direction: column;
                     justify-content: flex-start;
                     align-items: center;
-                }
-                .product .text p {
-                    font-size: 26px;
                 }
                 .mobileHeader {
                     order: 2;

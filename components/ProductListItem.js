@@ -18,7 +18,7 @@ export const ProductListItem = ({ id, title, description, img, price, handle }) 
             <Link as={`/shop/${handle}`} href={`/product?handle=${handle}`}>
                 <h3><A href={`/shop/${handle}`}>{title}</A></h3>
             </Link>
-            <p className="productDescription">{description}</p>
+            {/* <p className="productDescription">{description}</p> */}
             <div className="d-flex">
             <div className="pricing">
                 <p className="price"><span className="price-sale">€{price}</span></p>

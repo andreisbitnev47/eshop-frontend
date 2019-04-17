@@ -48,7 +48,8 @@ const InnerComponent = ({ router, itemAmount, updateItemAmount, addToCart, activ
                         <div className="col-lg-6 product-details pl-md-5">
                             <h3>{productByHandle.title}</h3>
                             <p className="price"><span>€{productByHandle.price}</span></p>
-                            <p>{productByHandle.descriptionLong}</p>
+                            {productByHandle.descriptionLong.split('\n').map((paragraph, index) =>
+                                <p className="descriptionParagraph">{paragraph}</p>)}
                             <div className="row mt-4">
                                 {/* <div className="col-md-6">
                                     <div className="form-group d-flex">
@@ -120,6 +121,9 @@ const InnerComponent = ({ router, itemAmount, updateItemAmount, addToCart, activ
                         }
                         .desktop-hide-flex {
                             display: none !important;
+                        }
+                        .descriptionParagraph {
+                            margin-bottom: 0;
                         }
                         @media only screen and (max-width: 991px) {
                             .mobile-hide-flex {

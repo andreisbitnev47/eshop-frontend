@@ -121,6 +121,9 @@ const OrderComplete = ({ router, orderId, email }) => (
                 </div>
             </div>
             <style jsx>{`
+                section {
+                    padding-top: 50px !important;
+                }
                 h2, p {
                     text-align: center;
                 }
@@ -149,6 +152,9 @@ const EmptyCheckout = () => (
             </div>
         </div>
         <style jsx>{`
+            section {
+                padding-top: 50px !important;
+            }
             h2, p {
                 text-align: center;
             }
@@ -202,13 +208,13 @@ const CheckoutForm = ({
                             }} className="billing-form bg-light p-3 p-md-5">
                             <h3 className="mb-4 billing-heading"><Translate id="checkout.billing_details" /></h3>
                             <div className="row align-items-end">
-                                <div className="col-md-6">
+                                <div className="col-lg-6">
                                     <div className="form-group">
                                         <label for="email"><Translate id="checkout.email" /></label>
                                         <input name="email" type="email" className="form-control" placeholder="" required value={email} onChange={(e) => { setEmail(e.target.value) }}/>
                                     </div>
                                 </div>
-                                <div className="col-md-6">
+                                <div className="col-lg-6">
                                     <div className="form-group">
                                         <label for="phone"><Translate id="checkout.phone" /></label>
                                         <input name="phone" type="text" className="form-control" placeholder="" required value={phone} onChange={(e) => { setPhone(e.target.value) }}/>
@@ -220,7 +226,7 @@ const CheckoutForm = ({
                                     setShippingProviderAddress={setShippingProviderAddress}
                                     setShippingPrice={setShippingPrice}
                                 />
-                                <div className="col-md-12">
+                                <div className="col-lg-12">
                                     <div className="cart-detail cart-total bg-light p-3 p-md-4">
                                         <h3 className="billing-heading mb-4"><Translate id="checkout.cart_total" /></h3>
                                         <p className="d-flex">
@@ -245,6 +251,16 @@ const CheckoutForm = ({
                     </div>
                 </div>
             </div>
+            <style jsx>{`
+                section {
+                    padding-top: 50px !important;
+                }
+                @media only screen and (max-width: 991px) {
+                    .billing-heading {
+                        font-size: 30px;
+                    }
+                }
+            `}</style>
         </section>
         )}
       </Mutation>);
