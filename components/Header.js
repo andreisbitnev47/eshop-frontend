@@ -74,7 +74,7 @@ const Header = ({ router, menuOpen, toggleMenuOpen }) => {
         }
         .menuIconButton {
           padding: 0;
-          margin-right: 15px;
+          margin-right: 7px;
         }
         .menuIcon {
           width: 26px;
