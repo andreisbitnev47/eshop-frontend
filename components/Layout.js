@@ -9,6 +9,9 @@ const Layout = (props) => (
             {props.children}
         <Footer />
         <style jsx global>{`
+            h1 {
+                font-size: 46px !important;
+            }
             .hero-wrap .slider-text h1 {
                 font-size: 70px;
             }

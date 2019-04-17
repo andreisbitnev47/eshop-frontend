@@ -49,17 +49,17 @@ const Header = ({ router, menuOpen, toggleMenuOpen }) => {
           <div className="languageBarContainer">
             <ul className="languageBar">
                 <li>
-                  <a href={`/en${router.route === '/index' ? '/' : router.route}`}>
+                  <a href={`/en${router.route === '/index' ? '/' : router.route === '/product' ? `/shop/${router.query.handle}` : router.route}`}>
                     <div style={{ backgroundImage: 'url(/static/img/en.svg)'}} className={classNames({active: router.query.language === 'en'})}></div>
                   </a>
                 </li>
                 <li>
-                  <a href={`/est${router.route === '/index' ? '/' : router.route}`}>
+                  <a href={`/est${router.route === '/index' ? '/' : router.route === '/product' ? `/shop/${router.query.handle}` : router.route}`}>
                     <div style={{ backgroundImage: 'url(/static/img/est.svg)'}} className={classNames({active: router.query.language === 'est'})}></div>
                   </a>
                 </li>
                 <li>
-                  <a href={`/rus${router.route === '/index' ? '/' : router.route}`}>
+                  <a href={`/rus${router.route === '/index' ? '/' : router.route === '/product' ? `/shop/${router.query.handle}` : router.route}`}>
                     <div style={{ backgroundImage: 'url(/static/img/rus.svg)'}} className={classNames({active: router.query.language === 'rus'})}></div>
                   </a>
                 </li>
@@ -74,6 +74,7 @@ const Header = ({ router, menuOpen, toggleMenuOpen }) => {
         }
         .menuIconButton {
           padding: 0;
+          margin-right: 15px;
         }
         .menuIcon {
           width: 26px;

@@ -52,6 +52,9 @@ const InnerComponent = ({ breadcrumbs }) => (
         <style jsx>{`
             .breadcrumbs {
                 font-size: 20px !important;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
             @media only screen and (max-width: 991px) {
                 .breadcrumbs {
