@@ -29,5 +29,11 @@ export const About = ({ img, title, mainText }) => (
                 </div>
             </div>
         </div>
+        <style jsx global>{`
+            .wrap-about .heading-section-bold h2 {
+                font-size: 32px !important;
+            }
+        `}</style>
     </section>
 );
+
