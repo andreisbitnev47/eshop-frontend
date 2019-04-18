@@ -18,6 +18,9 @@ const Layout = (props) => (
             .desktop-hide, .desktop-hide-flex {
                 display: none !important;
             }
+            .big {
+                font-size: 150px !important;
+            }
             @media only screen and (max-width: 991px) {
                 .mobile-hide {
                     display: none !important;

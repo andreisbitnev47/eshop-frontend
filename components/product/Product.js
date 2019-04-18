@@ -32,9 +32,7 @@ const InnerComponent = ({ router, itemAmount, updateItemAmount, addToCart, activ
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-6">
-                            <a href="images/menu-2.jpg" className="image-popup">
-                                <img src={`${process.env.BACKEND_URL}${productByHandle.imgBig[activeImage]}`} className="img-fluid" alt={`${productByHandle.title} image`}/>
-                            </a>
+                            <img src={`${process.env.BACKEND_URL}${productByHandle.imgBig[activeImage]}`} className="img-fluid" alt={`${productByHandle.title} image`}/>
                         </div>
                         {productByHandle.imgBig && productByHandle.imgBig.length > 1 ?
                             <div className="col-lg-6 smallImagesContainer desktop-hide-flex">

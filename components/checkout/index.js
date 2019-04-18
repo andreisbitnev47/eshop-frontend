@@ -14,6 +14,8 @@ export const checkoutContentQuery = gql`
       id
       handle
       group
+      title(language: $language)
+      paragraph(language: $language)
       img(language: $language) {
         url
       }
@@ -32,6 +34,10 @@ const InnerComponent = ({ router }) => (
         const mainImageContent = {
             img: get(contentObj, 'checkout_mainImage.img[0]', constants.unavailableImage),
         }
+        const checkoutContent = {
+          title: get(contentObj, 'checkout_checkout.title', ['']),
+          paragraph: get(contentObj, 'checkout_checkout.paragraph', ['']),
+        }
         const breadcrumbs = [
             {url: '/', id: 'navigation.home'},
             {id: 'navigation.checkout'},
@@ -39,7 +45,7 @@ const InnerComponent = ({ router }) => (
         return (
             <>
                 <MainImage img={mainImageContent.img} breadcrumbs={breadcrumbs}/>
-                <Checkout />
+                <Checkout title={checkoutContent.title} paragraph={checkoutContent.paragraph}/>
             </>
         )
       }}

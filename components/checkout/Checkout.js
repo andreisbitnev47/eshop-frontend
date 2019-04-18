@@ -56,10 +56,14 @@ const InnerComponent = ({
     setPhone,
     setOrderId,
     router,
-    orderId }) => (
+    orderId,
+    orderAmount,
+    setOrderAmount,
+    title,
+    paragraph, }) => (
     <>
         {orderId ?
-            <OrderComplete router={router} orderId={orderId} email={email} /> :
+            <OrderComplete router={router} orderId={orderId} email={email} amount={orderAmount}/> :
         cartItems.length ? 
             <Query query={productsQuery} variables={{ ids: cartItems.map(({ id }) => id) }}>
             {({ loading, error, data: { products }, fetchMore }) => {
@@ -88,6 +92,9 @@ const InnerComponent = ({
                     cartItems={cartItems}
                     setOrderId={setOrderId}
                     language={router.query.language}
+                    title={title}
+                    paragraph={paragraph}
+                    setOrderAmount={setOrderAmount}
                 />;
             }}
             </Query> :
@@ -96,7 +103,7 @@ const InnerComponent = ({
     </>
 )
 
-const OrderComplete = ({ router, orderId, email }) => (
+const OrderComplete = ({ router, orderId, email, amount }) => (
     <Query query={orderContentQuery} variables={{ language: router.query.language }}>
       {({ loading, error, data: { contnetsByGroup }, fetchMore }) => {
         if (error) return <ErrorMessage message='Error loading posts.' />
@@ -107,7 +114,8 @@ const OrderComplete = ({ router, orderId, email }) => (
         }, {});
         const content = {
             title: get(contentObj, 'order_complete.title[0]', ''),
-            paragraph: get(contentObj, 'order_complete.paragraph[0]', ''),
+            subtitle: get(contentObj, 'order_complete.subtitle[0]', ''),
+            paragraph: get(contentObj, 'order_complete.paragraph', ['']),
         }
         cart.clearCart();
         return (
@@ -116,7 +124,10 @@ const OrderComplete = ({ router, orderId, email }) => (
                 <div className="row">
                     <div className="col-md-12">
                         <h2>{content.title}</h2>
-                        <p>{content.paragraph.split('{{email}}').join(email).split('{{orderId}}').join(orderId)}</p>
+                        <h3>{content.subtitle}</h3>
+                        {content.paragraph.map(paragraph => 
+                            <p>{paragraph.split('{{email}}').join(email).split('{{orderId}}').join(orderId).split('{{amount}}').join(amount)}</p>
+                        )}
                     </div>
                 </div>
             </div>
@@ -124,8 +135,10 @@ const OrderComplete = ({ router, orderId, email }) => (
                 section {
                     padding-top: 50px !important;
                 }
-                h2, p {
+                h2, h3, p {
                     text-align: center;
+                    margin: 0;
+                    padding; 0;
                 }
                 @media only screen and (max-width: 991px) {
                     h2 {
@@ -184,6 +197,9 @@ const CheckoutForm = ({
     setPhone,
     cartItems,
     setOrderId,
+    setOrderAmount,
+    title,
+    paragraph,
     language, }) => {
     return (<Mutation mutation={orderMutation}>
         {(addOrder, { data }) => (
@@ -203,7 +219,8 @@ const CheckoutForm = ({
                             } })
                             .then((data) => {
                                 const orderId = get(data, 'data.addOrder.order.id', '');
-                                setOrderId(orderId)
+                                setOrderId(orderId);
+                                setOrderAmount(price);
                             })
                             }} className="billing-form bg-light p-3 p-md-5">
                             <h3 className="mb-4 billing-heading"><Translate id="checkout.billing_details" /></h3>
@@ -226,6 +243,10 @@ const CheckoutForm = ({
                                     setShippingProviderAddress={setShippingProviderAddress}
                                     setShippingPrice={setShippingPrice}
                                 />
+                                <div className="col-lg-7" style={{ margin: '20px 0' }}>
+                                    <h3>{title[0]}</h3>
+                                    {paragraph.map(paragraph => <p>{paragraph}</p>)}
+                                </div>
                                 <div className="col-lg-12">
                                     <div className="cart-detail cart-total bg-light p-3 p-md-4">
                                         <h3 className="billing-heading mb-4"><Translate id="checkout.cart_total" /></h3>
@@ -275,6 +296,7 @@ export const Checkout = compose(
     withState('email', 'setEmail', ''),
     withState('phone', 'setPhone', ''),
     withState('orderId', 'setOrderId', ''),
+    withState('orderAmount', 'setOrderAmount', 0),
     lifecycle({
         componentDidMount() {
             const cartItems = cart.getAllClean();

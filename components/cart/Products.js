@@ -165,6 +165,10 @@ const Cart = ({ products, items }) => {
                 position: relative;
                 justify-content: flex-start;
             }
+            .header .product {
+                justify-content: center;
+                color: black;
+            }
             .productContainer .product {
                 align-items: flex-start;
             }
