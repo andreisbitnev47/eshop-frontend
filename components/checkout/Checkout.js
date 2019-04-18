@@ -212,7 +212,7 @@ const CheckoutForm = ({
                             addOrder({ variables: {
                                 phone,
                                 email,
-                                language: 'en',
+                                language,
                                 shippingProviderAddress,
                                 shippingProviderId: shippingProvider,
                                 orderProducts: cartItems,
@@ -220,7 +220,7 @@ const CheckoutForm = ({
                             .then((data) => {
                                 const orderId = get(data, 'data.addOrder.order.id', '');
                                 setOrderId(orderId);
-                                setOrderAmount(price);
+                                setOrderAmount(Big(price).plus(Big(shippingPrice || 0)).toFixed(2));
                             })
                             }} className="billing-form bg-light p-3 p-md-5">
                             <h3 className="mb-4 billing-heading"><Translate id="checkout.billing_details" /></h3>
