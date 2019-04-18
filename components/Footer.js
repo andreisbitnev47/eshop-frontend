@@ -21,8 +21,8 @@ export const Footer = () => (
               <h2 className="ftco-heading-2"><Translate id="footer.menu"/></h2>
               <ul className="list-unstyled">
                 <Link href="/"><li><A href="/" classnames="py-2 d-block"><Translate id="navigation.home"/></A></li></Link>
-                <Link href="/"><li><A href="/" classnames="py-2 d-block"><Translate id="navigation.shop"/></A></li></Link>
-                <Link href="/"><li><A href="/" classnames="py-2 d-block"><Translate id="navigation.about"/></A></li></Link>
+                <Link href="/shop"><li><A href="/shop" classnames="py-2 d-block"><Translate id="navigation.shop"/></A></li></Link>
+                <Link href="/about"><li><A href="/about" classnames="py-2 d-block"><Translate id="navigation.about"/></A></li></Link>
               </ul>
             </div>
           </div>
