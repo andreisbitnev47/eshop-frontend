@@ -62,9 +62,11 @@ const InnerComponent = ({
     title,
     paragraph, }) => (
     <>
-        {orderId ?
+        {orderId && orderId !== 'error' ?
             <OrderComplete router={router} orderId={orderId} email={email} amount={orderAmount}/> :
-        cartItems.length ? 
+        orderId && orderId === 'error' ?
+            <Error /> :
+        cartItems.length && orderId !== 'error' ? 
             <Query query={productsQuery} variables={{ ids: cartItems.map(({ id }) => id) }}>
             {({ loading, error, data: { products }, fetchMore }) => {
                 if (error) return <ErrorMessage message='Error loading items.' />
@@ -183,6 +185,27 @@ const EmptyCheckout = () => (
     </section>
 );
 
+const Error = () => (
+    <section className="ftco-section ftco-cart">
+        <div className="container">
+            <div className="row">
+                <div className="col-md-12">
+                    <h2><Translate id="checkout.error"/></h2>
+                    <p><Translate id="checkout.error_proceed"/></p>
+                </div>
+            </div>
+        </div>
+        <style jsx>{`
+            section {
+                padding-top: 50px !important;
+            }
+            h2, p {
+                text-align: center;
+            }
+        `}</style>
+    </section>
+);
+
 const CheckoutForm = ({ 
     price,
     shippingProvider,
@@ -219,9 +242,13 @@ const CheckoutForm = ({
                             } })
                             .then((data) => {
                                 const orderId = get(data, 'data.addOrder.order.id', '');
-                                setOrderId(orderId);
-                                setOrderAmount(Big(price).plus(Big(shippingPrice || 0)).toFixed(2));
-                            })
+                                if (!orderId) {
+                                    setOrderId('error');
+                                } else {
+                                    setOrderId(orderId);
+                                    setOrderAmount(Big(price).plus(Big(shippingPrice || 0)).toFixed(2));
+                                }
+                            });
                             }} className="billing-form bg-light p-3 p-md-5">
                             <h3 className="mb-4 billing-heading"><Translate id="checkout.billing_details" /></h3>
                             <div className="row align-items-end">
