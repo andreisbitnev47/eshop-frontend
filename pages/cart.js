@@ -4,7 +4,7 @@ import CartPage from '../components/cart/index';
 
 export default () => (
   <App>
-    <Layout title="Shopping cart">
+    <Layout title="title.cart">
       <CartPage />
     </Layout>
   </App>

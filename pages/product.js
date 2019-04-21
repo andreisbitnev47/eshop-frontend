@@ -4,7 +4,7 @@ import ProductPage from '../components/product/index';
 
 export default () => (
   <App>
-    <Layout title="Product">
+    <Layout title="title.product">
       <ProductPage />
     </Layout>
   </App>

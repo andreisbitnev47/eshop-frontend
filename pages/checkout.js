@@ -4,7 +4,7 @@ import CheckoutPage from '../components/checkout/index';
 
 export default () => (
   <App>
-    <Layout title="Checkout">
+    <Layout title="title.checkout">
       <CheckoutPage />
     </Layout>
   </App>

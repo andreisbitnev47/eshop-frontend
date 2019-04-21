@@ -4,7 +4,7 @@ import IndexPage from '../components/index/index';
 
 export default () => (
   <App>
-    <Layout title="Eco Snack">
+    <Layout title="title.index">
       <IndexPage />
     </Layout>
   </App>

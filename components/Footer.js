@@ -12,7 +12,7 @@ export const Footer = () => (
               <ul className="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                 <li><a href="#"><span className="icon-instagram"><img style={{ height: '22px', width: '22px' }} src="/static/img/twitter.svg"/></span></a></li>
                 <li><a href="#"><span className="icon-instagram"><img style={{ height: '22px', width: '22px' }} src="/static/img/facebook.svg"/></span></a></li>
-                <li><a href="#"><span className="icon-instagram"><img style={{ height: '22px', width: '22px' }} src="/static/img/instagram.svg"/></span></a></li>
+                <li><a href="https://www.instagram.com/sudamesnackid"><span className="icon-instagram"><img style={{ height: '22px', width: '22px' }} src="/static/img/instagram.svg"/></span></a></li>
               </ul>
             </div>
           </div>

@@ -4,7 +4,7 @@ import AboutPage from '../components/about/index';
 
 export default () => (
   <App>
-    <Layout title="About">
+    <Layout title="title.about">
       <AboutPage />
     </Layout>
   </App>

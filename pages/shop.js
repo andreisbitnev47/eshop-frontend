@@ -4,7 +4,7 @@ import ShopPage from '../components/shop/index';
 
 export default () => (
   <App>
-    <Layout title="Shop">
+    <Layout title="title.shop">
       <ShopPage />
     </Layout>
   </App>
