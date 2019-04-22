@@ -10,9 +10,9 @@ export const Footer = () => (
             <div className="ftco-footer-widget mb-4">
               <h2 className="ftco-heading-2">EcoSnack</h2>
               <ul className="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-                <li><a href="#"><span className="icon-instagram"><img style={{ height: '22px', width: '22px' }} src="/static/img/twitter.svg"/></span></a></li>
-                <li><a href="#"><span className="icon-instagram"><img style={{ height: '22px', width: '22px' }} src="/static/img/facebook.svg"/></span></a></li>
+                <li><a href="https://facebook.com/Südamesnack-ecosnackee-432535830893254"><span className="icon-instagram"><img style={{ height: '22px', width: '22px' }} src="/static/img/facebook.svg"/></span></a></li>
                 <li><a href="https://www.instagram.com/sudamesnackid"><span className="icon-instagram"><img style={{ height: '22px', width: '22px' }} src="/static/img/instagram.svg"/></span></a></li>
+                <li><a href="#"><span className="icon-instagram"><img style={{ height: '22px', width: '22px' }} src="/static/img/twitter.svg"/></span></a></li>
               </ul>
             </div>
           </div>
