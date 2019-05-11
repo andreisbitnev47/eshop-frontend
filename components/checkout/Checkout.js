@@ -12,8 +12,8 @@ import { ShippingProvider } from './ShippingProvider';
 import { Translate } from '../Translate';
 
 const productsQuery = gql`
-  query products($ids: [ID]!) {
-    products(ids: $ids) {
+  query activeProducts($ids: [ID]!) {
+    activeProducts(ids: $ids) {
       id
       price
     }
@@ -68,12 +68,12 @@ const InnerComponent = ({
             <Error /> :
         cartItems.length && orderId !== 'error' ? 
             <Query query={productsQuery} variables={{ ids: cartItems.map(({ id }) => id) }}>
-            {({ loading, error, data: { products }, fetchMore }) => {
+            {({ loading, error, data: { activeProducts }, fetchMore }) => {
                 if (error) return <ErrorMessage message='Error loading items.' />
                 if (loading) return <div>Loading</div>
                 const itemPrices = {};
                 const itemIds = [];
-                products.forEach(product => { itemPrices[product.id] = product.price; itemIds.push(product.id) });
+                activeProducts.forEach(product => { itemPrices[product.id] = product.price; itemIds.push(product.id) });
                 const updatedCart = cart.updateItems(itemIds);
                 const amount = updatedCart.reduce((acc, item) => acc.plus(Big(item.amount || 0)), Big('0'));
                 const price = updatedCart.reduce((acc, item) => Big(item.amount || 0).times(itemPrices[item.id]).plus(acc), Big('0'));

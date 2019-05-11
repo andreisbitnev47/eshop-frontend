@@ -5,9 +5,9 @@ import gql from 'graphql-tag';
 import ErrorMessage from './ErrorMessage';
 import { ProductListItem }  from './ProductListItem';
 
-export const productsQuery = gql`
-  query activeProducts($language: String!) {
-    activeProducts {
+const activeProductsQuery = gql`
+  query activeProducts($language: String!, $featured: Boolean) {
+    activeProducts(featured: $featured) {
       id
       handle
       title(language: $language)
@@ -17,9 +17,9 @@ export const productsQuery = gql`
   }
 `
 
-const InnerComponent = ({ router }) => {
+const InnerComponent = ({ router, featured }) => {
   return (
-    <Query query={productsQuery} variables={{ language: router.query.language }}>
+    <Query query={activeProductsQuery} variables={{ featured, language: router.query.language }}>
       {({ loading, error, data: { activeProducts }, fetchMore }) => {
         if (error) return <ErrorMessage message='Error loading posts.' />
         if (loading) return <div>Loading</div>

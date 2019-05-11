@@ -13,7 +13,7 @@ export const Products = ({ title, subTitle }) => (
                 </div>
             </div>    		
     	</div>
-        <ProductList />
+        <ProductList featured={true}/>
         <p style={{ textAlign: 'center' }}>
             <Link href="/shop">
                 <A href="/shop" classnames="btn btn-primary py-3 px-5">

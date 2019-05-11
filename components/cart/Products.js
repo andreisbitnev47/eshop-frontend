@@ -13,9 +13,9 @@ import A from '../A';
 
 import { Translate } from '../Translate';
 
-export const productsQuery = gql`
-  query products($ids: [ID]!, $language: String!) {
-    products(ids: $ids) {
+export const activeProductsQuery = gql`
+  query activeProducts($ids: [ID]!, $language: String!) {
+    activeProducts(ids: $ids) {
       id
       price
       title(language: $language)
@@ -30,13 +30,13 @@ export const productsQuery = gql`
 const InnerComponent = ({ cartItems, router }) => (
     <>
         {cartItems.length ? 
-            <Query query={productsQuery} variables={{ ids: cartItems.map(({ id }) => id), language: router.query.language }}>
-            {({ loading, error, data: { products }, fetchMore }) => {
+            <Query query={activeProductsQuery} variables={{ ids: cartItems.map(({ id }) => id), language: router.query.language }}>
+            {({ loading, error, data: { activeProducts }, fetchMore }) => {
                 if (error) return <ErrorMessage message='Error loading items.' />
                 if (loading) return <div>Loading</div>
                 const productsObj = {};
                 const itemIds = [];
-                products.forEach(product => { productsObj[product.id] = product; itemIds.push(product.id) });
+                activeProducts.forEach(product => { productsObj[product.id] = product; itemIds.push(product.id) });
                 const updatedCart = cart.updateItems(itemIds);
                 // const amount = updatedCart.reduce((acc, item) => acc + item.amount, 0);
                 // const price = updatedCart.reduce((acc, item) => acc + item.amount * itemPrices[item.id], 0);
