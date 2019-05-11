@@ -8,8 +8,8 @@ import cart from '../utils/shoppingCart';
 import Big from 'big.js';
 
 export const productsQuery = gql`
-  query products($ids: [ID]!) {
-    products(ids: $ids) {
+  query activeProducts($ids: [ID]!) {
+    activeProducts(ids: $ids) {
       id
       price
     }
@@ -20,12 +20,12 @@ const InnerComponent = ({ cartItems }) => (
     <>
         {cartItems.length ? 
             <Query query={productsQuery} variables={{ ids: cartItems.map(({ id }) => id) }}>
-            {({ loading, error, data: { products }, fetchMore }) => {
+            {({ loading, error, data: { activeProducts }, fetchMore }) => {
                 if (error) return <ErrorMessage message='Error loading items.' />
                 if (loading) return <div>Loading</div>
                 const itemPrices = {};
                 const itemIds = [];
-                products.forEach(product => { itemPrices[product.id] = product.price; itemIds.push(product.id) });
+                activeProducts.forEach(product => { itemPrices[product.id] = product.price; itemIds.push(product.id) });
                 const updatedCart = cart.updateItems(itemIds);
                 const amount = updatedCart.reduce((acc, item) => acc.plus(Big(cart.checkAmount(item.amount))), Big('0'));
                 const price = updatedCart.reduce((acc, item) => Big(cart.checkAmount(item.amount)).times(itemPrices[item.id]).plus(acc), Big('0'));
