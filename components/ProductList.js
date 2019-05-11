@@ -7,7 +7,7 @@ import { ProductListItem }  from './ProductListItem';
 
 export const productsQuery = gql`
   query products($language: String!) {
-    products {
+    activeProducts {
       id
       handle
       title(language: $language)
