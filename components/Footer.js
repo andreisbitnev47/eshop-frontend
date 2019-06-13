@@ -17,12 +17,12 @@ export const Footer = () => (
             </div>
           </div>
           <div className="col-md">
-            <div className="ftco-footer-widget mb-4 ml-md-5">
-              <h2 className="ftco-heading-2"><Translate id="footer.menu"/></h2>
+            <div className="ftco-footer-widget mb-4">
+              <h2 className="ftco-heading-2"><Translate id="footer.shipping"/></h2>
               <ul className="list-unstyled">
-                <Link href="/"><li><A href="/" classnames="py-2 d-block"><Translate id="navigation.home"/></A></li></Link>
-                <Link href="/shop"><li><A href="/shop" classnames="py-2 d-block"><Translate id="navigation.shop"/></A></li></Link>
-                <Link href="/about"><li><A href="/about" classnames="py-2 d-block"><Translate id="navigation.about"/></A></li></Link>
+                <li style={{ marginBottom: '12px'}}><img src="/static/img/omniva_logo.png" style={{ width: '40px', marginRight: '18px'}}/><Translate id="footer.omniva"/></li>
+                <li style={{ marginBottom: '12px'}}><img src="/static/img/smartpost_logo.png" style={{ width: '40px', marginRight: '18px'}}/><Translate id="footer.smartpost"/></li>
+                <li style={{ marginBottom: '12px'}}><img src="/static/img/local_pickup.svg" style={{ width: '40px', marginRight: '18px'}}/><Translate id="footer.local"/></li>
               </ul>
             </div>
           </div>

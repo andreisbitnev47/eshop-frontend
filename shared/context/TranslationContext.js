@@ -7,7 +7,6 @@ import withContext from "recompose/withContext";
 import getContext from "recompose/getContext";
 import setDisplayName from "recompose/setDisplayName";
 import { withQueryOptionsAndLoading } from '../hocs/customQuery';
-import { get } from 'https';
 
 const TRANSLATIONS_QUERY = graphql`
     query translations($language: String!) {

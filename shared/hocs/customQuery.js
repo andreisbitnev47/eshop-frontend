@@ -20,6 +20,13 @@ export const withQueryOptions = (query, options = {}) => Component => compose(
             options: ({ router }) => {
                 const language = router.query.language || 'en';
                 const parentResults = options || {};
+                if (parentResults.variables) {
+                    Object.keys(parentResults.variables).forEach((key) => {
+                        if(typeof parentResults.variables[key] === 'function') {
+                            parentResults.variables[key] = parentResults.variables[key]();
+                        }
+                    });
+                }
                 return ({ ...parentResults, variables: { language, ...parentResults.variables }});
             }
         }

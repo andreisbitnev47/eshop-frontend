@@ -1,6 +1,8 @@
 import compose from 'recompose/compose';
 import lifecycle from 'recompose/lifecycle';
 import withState from 'recompose/withState';
+import withStateHandlers from 'recompose/withStateHandlers';
+import withProps from 'recompose/withProps';
 import get from 'lodash/get';
 import { withRouter } from 'next/router'
 import { Query, Mutation } from 'react-apollo'
@@ -8,6 +10,7 @@ import gql from 'graphql-tag'
 import Big from 'big.js';
 import cart from '../../utils/shoppingCart';
 import { ShippingProvider } from './ShippingProvider';
+import { withQueryOptionsAndLoading } from '../../shared/hocs/customQuery';
 
 import { Translate } from '../Translate';
 
@@ -42,65 +45,30 @@ export const orderContentQuery = gql`
   }
 `
 
-const InnerComponent = ({ 
-    cartItems,
-    shippingProvider,
-    setShippingProvider,
-    setShippingProviderAddress,
-    setShippingPrice,
-    shippingPrice,
-    shippingProviderAddress,
-    email,
-    setEmail,
-    phone,
-    setPhone,
-    setOrderId,
+const InnerComponent = ({
+    title,
+    paragraph,
     router,
+    setOrderId,
+    cartItems,
     orderId,
     orderAmount,
-    setOrderAmount,
-    title,
-    paragraph, }) => (
+    setOrderAmount}) => (
     <>
         {orderId && orderId !== 'error' ?
             <OrderComplete router={router} orderId={orderId} email={email} amount={orderAmount}/> :
         orderId && orderId === 'error' ?
             <Error /> :
-        cartItems.length && orderId !== 'error' ? 
-            <Query query={productsQuery} variables={{ ids: cartItems.map(({ id }) => id) }}>
-            {({ loading, error, data: { activeProducts }, fetchMore }) => {
-                if (error) return <ErrorMessage message='Error loading items.' />
-                if (loading) return <div>Loading</div>
-                const itemPrices = {};
-                const itemIds = [];
-                activeProducts.forEach(product => { itemPrices[product.id] = product.price; itemIds.push(product.id) });
-                const updatedCart = cart.updateItems(itemIds);
-                const amount = updatedCart.reduce((acc, item) => acc.plus(Big(item.amount || 0)), Big('0'));
-                const price = updatedCart.reduce((acc, item) => Big(item.amount || 0).times(itemPrices[item.id]).plus(acc), Big('0'));
-
-                return <CheckoutForm 
-                    amount={amount.toFixed(0)}
-                    price={price.toFixed(2)}
-                    shippingProvider={shippingProvider}
-                    setShippingProvider={setShippingProvider}
-                    setShippingProviderAddress={setShippingProviderAddress}
-                    setShippingPrice={setShippingPrice}
-                    shippingPrice={shippingPrice}
-                    shippingProviderAddress={shippingProviderAddress}
-                    email={email}
-                    setEmail={setEmail}
-                    phone={phone}
-                    setPhone={setPhone}
-                    cartItems={cartItems}
-                    setOrderId={setOrderId}
-                    language={router.query.language}
-                    title={title}
-                    paragraph={paragraph}
-                    setOrderAmount={setOrderAmount}
-                />;
-            }}
-            </Query> :
-            <EmptyCheckout />
+        cartItems.length && orderId !== 'error' ?
+            <CheckoutForm 
+                cartItems={cartItems}
+                setOrderId={setOrderId}
+                language={router.query.language}
+                setOrderAmount={setOrderAmount}
+                title={title}
+                paragraph={paragraph}
+            /> :
+        <EmptyCheckout />
         }
     </>
 )
@@ -206,8 +174,8 @@ const Error = () => (
     </section>
 );
 
-const CheckoutForm = ({ 
-    price,
+const CheckoutFormInnerComponent = ({ 
+    cartPrice,
     shippingProvider,
     setShippingProvider,
     setShippingProviderAddress,
@@ -220,10 +188,10 @@ const CheckoutForm = ({
     setPhone,
     cartItems,
     setOrderId,
-    setOrderAmount,
+    language,
     title,
     paragraph,
-    language, }) => {
+    setOrderAmount}) => {
     return (<Mutation mutation={orderMutation}>
         {(addOrder, { data }) => (
           <section className="ftco-section">
@@ -246,7 +214,7 @@ const CheckoutForm = ({
                                     setOrderId('error');
                                 } else {
                                     setOrderId(orderId);
-                                    setOrderAmount(Big(price).plus(Big(shippingPrice || 0)).toFixed(2));
+                                    setOrderAmount(Big(cartPrice).plus(Big(shippingPrice || 0)).toFixed(2));
                                 }
                             });
                             }} className="billing-form bg-light p-3 p-md-5">
@@ -279,7 +247,7 @@ const CheckoutForm = ({
                                         <h3 className="billing-heading mb-4"><Translate id="checkout.cart_total" /></h3>
                                         <p className="d-flex">
                                             <span><Translate id="checkout.subtotal" /></span>
-                                            <span>€{price}</span>
+                                            <span>€{cartPrice}</span>
                                         </p>
                                         <p className="d-flex">
                                             <span><Translate id="checkout.delivery" /></span>
@@ -288,7 +256,7 @@ const CheckoutForm = ({
                                         <hr/>
                                         <p className="d-flex total-price">
                                             <span><Translate id="checkout.total" /></span>
-                                            <span>€{Big(price).plus(Big(shippingPrice || 0)).toFixed(2)}</span>
+                                            <span>€{Big(cartPrice).plus(Big(shippingPrice || 0)).toFixed(2)}</span>
                                         </p>
                                         <br/>
                                         <p><button type="submit" className="btn btn-primary py-3 px-4"><Translate id="checkout.place_order" /></button></p>
@@ -314,22 +282,34 @@ const CheckoutForm = ({
       </Mutation>);
 };
 
-export const Checkout = compose(
-    withRouter,
-    withState('cartItems', 'setCartItems', []),
+export const CheckoutForm = compose(
+    withQueryOptionsAndLoading(productsQuery, { variables: { ids: () => cart.getAllClean().map(({ id }) => id) } }),
+    withProps(({ data }) => {
+        const itemPrices = {};
+        const itemIds = [];
+        data.activeProducts.forEach(product => { itemPrices[product.id] = product.price; itemIds.push(product.id) });
+        const updatedCart = cart.updateItems(itemIds);
+        const cartAmount = updatedCart.reduce((acc, item) => acc.plus(Big(item.amount || 0)), Big('0'));
+        const cartPrice = updatedCart.reduce((acc, item) => Big(item.amount || 0).times(itemPrices[item.id]).plus(acc), Big('0'));
+        return { cartAmount: cartAmount.toFixed(0), cartPrice: cartPrice.toFixed(2) }
+    }),
     withState('shippingProvider', 'setShippingProvider', ''),
     withState('shippingProviderAddress', 'setShippingProviderAddress', ''),
-    withState('shippingPrice', 'setShippingPrice', 0),
+    withStateHandlers({ shippingPrice: 0 }, { setShippingPrice: ({ shippingPrice }, { cartPrice }) => (price) => ({
+        shippingPrice: parseInt(cartPrice) >= 20 ? 0 : price
+    })}),
     withState('email', 'setEmail', ''),
     withState('phone', 'setPhone', ''),
+)(CheckoutFormInnerComponent);
+
+export const Checkout = compose(
+    withRouter,
     withState('orderId', 'setOrderId', ''),
     withState('orderAmount', 'setOrderAmount', 0),
+    withState('cartItems', 'setCartItems', []),
     lifecycle({
         componentDidMount() {
-            const cartItems = cart.getAllClean();
-            if (cartItems.length) {
-                this.props.setCartItems(cartItems);
-            }
+            this.props.setCartItems(cart.getAllClean());
         }
     }),
 )(InnerComponent);
