@@ -48,6 +48,10 @@ export const orderContentQuery = gql`
 const InnerComponent = ({
     title,
     paragraph,
+    email,
+    setEmail,
+    phone,
+    setPhone,
     router,
     setOrderId,
     cartItems,
@@ -60,7 +64,11 @@ const InnerComponent = ({
         orderId && orderId === 'error' ?
             <Error /> :
         cartItems.length && orderId !== 'error' ?
-            <CheckoutForm 
+            <CheckoutForm
+                email={email}
+                setEmail={setEmail}
+                phone={phone}
+                setPhone={setPhone}
                 cartItems={cartItems}
                 setOrderId={setOrderId}
                 language={router.query.language}
@@ -298,8 +306,6 @@ export const CheckoutForm = compose(
     withStateHandlers({ shippingPrice: 0 }, { setShippingPrice: ({ shippingPrice }, { cartPrice }) => (price) => ({
         shippingPrice: parseInt(cartPrice) >= 20 ? 0 : price
     })}),
-    withState('email', 'setEmail', ''),
-    withState('phone', 'setPhone', ''),
 )(CheckoutFormInnerComponent);
 
 export const Checkout = compose(
@@ -307,6 +313,8 @@ export const Checkout = compose(
     withState('orderId', 'setOrderId', ''),
     withState('orderAmount', 'setOrderAmount', 0),
     withState('cartItems', 'setCartItems', []),
+    withState('email', 'setEmail', ''),
+    withState('phone', 'setPhone', ''),
     lifecycle({
         componentDidMount() {
             this.props.setCartItems(cart.getAllClean());
