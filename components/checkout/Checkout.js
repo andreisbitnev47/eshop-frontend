@@ -304,7 +304,7 @@ export const CheckoutForm = compose(
     withState('shippingProvider', 'setShippingProvider', ''),
     withState('shippingProviderAddress', 'setShippingProviderAddress', ''),
     withStateHandlers({ shippingPrice: 0 }, { setShippingPrice: ({ shippingPrice }, { cartPrice }) => (price) => ({
-        shippingPrice: parseInt(cartPrice) >= 20 ? 0 : price
+        shippingPrice: price
     })}),
 )(CheckoutFormInnerComponent);
 

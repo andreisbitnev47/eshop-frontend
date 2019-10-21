@@ -2,10 +2,10 @@ import { Translate } from '../Translate';
 export const MainImage = ({ img, title, subTitle}) => (
     <div className="hero-wrap js-fullheight" style={{ backgroundImage: `url('${process.env.BACKEND_URL}${img.url}')`, height: '100vh' }}>
       <div className="info">
-        <div className="infoComponent">
+        {/* <div className="infoComponent">
           <img src="/static/img/shipping.svg"/>
           <span className="infoText"><Translate id="info.freeShipping"/></span>
-        </div>
+        </div> */}
         <div className="infoComponent mobile-hide">
           <img src="/static/img/24h.svg"/>
           <span className="infoText"><Translate id="info.24h"/></span>
