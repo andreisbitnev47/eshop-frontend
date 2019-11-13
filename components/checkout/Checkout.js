@@ -24,8 +24,8 @@ const productsQuery = gql`
 `
 
 const orderMutation = gql`
-    mutation addOrder($shippingProviderId: ID!, $shippingProviderAddress: String!, $email: String!, $phone: String!, $orderProducts: [orderProductsInput]!, $language: String!) {
-        addOrder (shippingProviderId: $shippingProviderId, shippingProviderAddress: $shippingProviderAddress, email: $email, phone: $phone, orderProducts: $orderProducts, language: $language) {
+    mutation addOrder($shippingProviderId: ID!, $shippingProviderAddress: String!, $email: String!, $phone: String!, $orderProducts: [orderProductsInput]!, $language: String!, $client: String!) {
+        addOrder (shippingProviderId: $shippingProviderId, shippingProviderAddress: $shippingProviderAddress, email: $email, phone: $phone, orderProducts: $orderProducts, language: $language, client: $client) {
             order {
                 id
             }
@@ -52,6 +52,8 @@ const InnerComponent = ({
     setEmail,
     phone,
     setPhone,
+    client,
+    setClient,
     router,
     setOrderId,
     cartItems,
@@ -71,6 +73,8 @@ const InnerComponent = ({
                 setPhone={setPhone}
                 cartItems={cartItems}
                 setOrderId={setOrderId}
+                client={client}
+                setClient={setClient}
                 language={router.query.language}
                 setOrderAmount={setOrderAmount}
                 title={title}
@@ -194,6 +198,8 @@ const CheckoutFormInnerComponent = ({
     setEmail,
     phone,
     setPhone,
+    client,
+    setClient,
     cartItems,
     setOrderId,
     language,
@@ -211,6 +217,7 @@ const CheckoutFormInnerComponent = ({
                             addOrder({ variables: {
                                 phone,
                                 email,
+                                client,
                                 language,
                                 shippingProviderAddress,
                                 shippingProviderId: shippingProvider,
@@ -238,6 +245,12 @@ const CheckoutFormInnerComponent = ({
                                     <div className="form-group">
                                         <label for="phone"><Translate id="checkout.phone" /></label>
                                         <input name="phone" type="text" className="form-control" placeholder="" required value={phone} onChange={(e) => { setPhone(e.target.value) }}/>
+                                    </div>
+                                </div>
+                                <div className="col-lg-6">
+                                    <div className="form-group">
+                                        <label for="client"><Translate id="checkout.client" /></label>
+                                        <input name="client" type="text" className="form-control" placeholder="" required value={client} onChange={(e) => { setClient(e.target.value) }}/>
                                     </div>
                                 </div>
                                 <ShippingProvider 
@@ -315,6 +328,7 @@ export const Checkout = compose(
     withState('cartItems', 'setCartItems', []),
     withState('email', 'setEmail', ''),
     withState('phone', 'setPhone', ''),
+    withState('client', 'setClient', 'Eraisik'),
     lifecycle({
         componentDidMount() {
             this.props.setCartItems(cart.getAllClean());
