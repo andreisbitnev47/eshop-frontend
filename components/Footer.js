@@ -31,7 +31,7 @@ export const Footer = () => (
             	<h2 className="ftco-heading-2"><Translate id="footer.questions"/></h2>
             	<div className="block-23 mb-3">
 	              <ul>
-                  <li><a href="#"><span className="questionIcon"><img style={{ height: '18px', width: '18px' }} src="/static/img/pin.svg"/></span><span className="text">JULIA LIPP FIE (14845161)</span></a></li>
+                  <li><a href="#"><span className="questionIcon"><img style={{ height: '18px', width: '18px' }} src="/static/img/pin.svg"/></span><span className="text">JULIA LIPP</span></a></li>
 	                <li><a href="tel:+372 58553375"><span className="questionIcon"><img style={{ height: '18px', width: '18px' }} src="/static/img/phone.svg"/></span><span className="text">+372 58553375</span></a></li>
 	                <li><a href="mailto:ecosnack.ee@gmail.com"><span className="questionIcon"><img style={{ height: '18px', width: '18px' }} src="/static/img/email.svg"/></span><span className="text">ecosnack.ee@gmail.com</span></a></li>
 	              </ul>
@@ -44,7 +44,7 @@ export const Footer = () => (
 
             <p>
                 {/* <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --> */}
-				Copyright 2019 All rights reserved | This template is made with <i className="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+				Copyright 2021 All rights reserved | This template is made with <i className="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
 						  {/* <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --> */}
 			</p>
           </div>
