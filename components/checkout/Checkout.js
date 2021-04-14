@@ -28,6 +28,7 @@ const orderMutation = gql`
         addOrder (shippingProviderId: $shippingProviderId, shippingProviderAddress: $shippingProviderAddress, email: $email, phone: $phone, orderProducts: $orderProducts, language: $language, client: $client) {
             order {
                 id
+                orderId
             }
         }
     }
@@ -224,7 +225,7 @@ const CheckoutFormInnerComponent = ({
                                 orderProducts: cartItems,
                             } })
                             .then((data) => {
-                                const orderId = get(data, 'data.addOrder.order.id', '');
+                                const orderId = get(data, 'data.addOrder.order.orderId', '');
                                 if (!orderId) {
                                     setOrderId('error');
                                 } else {
