@@ -30,11 +30,7 @@ app
       const defaultLanguage = 'est';
       const cookieLanguage = req.cookies.language;
       const queryLanguage = req.path.split('/')[1];
-      const language = availableLanguages.includes(queryLanguage) ? queryLanguage :
-        !!cookieLanguage ? cookieLanguage : defaultLanguage;
-      if (cookieLanguage !== language) {
-        res.cookie('language', language, { maxAge: 900000, httpOnly: true });
-      }
+      const language = availableLanguages.includes(queryLanguage) ? queryLanguage : defaultLanguage;
       if (queryLanguage !== language) {
         res.redirect(`/${language}${req.path}`);
         return;
