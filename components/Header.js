@@ -15,7 +15,7 @@ const Header = ({ router, menuOpen, toggleMenuOpen }) => {
         <A href="/">
           <div style={{ display: 'flex', height: '100%', justifyContent: 'center', alignItems: 'center'}}>
             <div id="logo" style={{
-              backgroundImage: 'url(/static/img/logo.png)',
+              backgroundImage: 'url(/logos/logo.png)',
               backgroundSize: 'contain',
               backgroundRepeat: 'no-repeat',
             }}></div>
