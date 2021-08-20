@@ -49,6 +49,7 @@ export const Footer = () => (
 			</p>
           </div>
         </div>
+        <img src="/backgrounds/bg.png" width="1" height="1" />
       </div>
       <style jsx>{`
         .questionIcon {
