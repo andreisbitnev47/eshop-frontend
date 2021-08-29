@@ -61,6 +61,18 @@ app
       app.render(req, res, actualPage, queryParams)
     });
 
+    server.get('/:language/privacy', (req, res) => {
+      const actualPage = '/privacy'
+      const queryParams = { language: req.params.language }
+      app.render(req, res, actualPage, queryParams)
+    });
+
+    server.get('/:language/terms', (req, res) => {
+      const actualPage = '/terms'
+      const queryParams = { language: req.params.language }
+      app.render(req, res, actualPage, queryParams)
+    });
+
     server.get('/:language/cart', (req, res) => {
       const actualPage = '/cart'
       const queryParams = { language: req.params.language }

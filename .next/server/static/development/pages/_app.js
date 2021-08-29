@@ -122,7 +122,7 @@ function create(initialState) {
     ssrMode: !false,
     // Disables forceFetch on the server (so queries are only run once)
     link: new apollo_boost__WEBPACK_IMPORTED_MODULE_0__["HttpLink"]({
-      uri: "http://localhost:5000/graphql",
+      uri: "https://ecosnack.ee/graphql",
       // Server URL (must be absolute)
       credentials: 'same-origin' // Additional fetch() options like `credentials` or `headers`
 
@@ -1890,8 +1890,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var recompose_setDisplayName__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! recompose/setDisplayName */ "recompose/setDisplayName");
 /* harmony import */ var recompose_setDisplayName__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(recompose_setDisplayName__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var _hocs_customQuery__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../hocs/customQuery */ "./shared/hocs/customQuery.js");
-/* harmony import */ var https__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! https */ "https");
-/* harmony import */ var https__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(https__WEBPACK_IMPORTED_MODULE_11__);
 
 
 
@@ -1904,7 +1902,6 @@ function _templateObject() {
 
   return data;
 }
-
 
 
 
@@ -1957,16 +1954,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "withQueryOptions", function() { return withQueryOptions; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "withQueryOptionsAndLoading", function() { return withQueryOptionsAndLoading; });
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/objectSpread */ "./node_modules/@babel/runtime-corejs2/helpers/esm/objectSpread.js");
-/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-apollo */ "react-apollo");
-/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var recompose_compose__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! recompose/compose */ "recompose/compose");
-/* harmony import */ var recompose_compose__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(recompose_compose__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var recompose_branch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! recompose/branch */ "recompose/branch");
-/* harmony import */ var recompose_branch__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(recompose_branch__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var recompose_renderComponent__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! recompose/renderComponent */ "recompose/renderComponent");
-/* harmony import */ var recompose_renderComponent__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(recompose_renderComponent__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! next/router */ "./node_modules/next/router.js");
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/keys */ "./node_modules/@babel/runtime-corejs2/core-js/object/keys.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-apollo */ "react-apollo");
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var recompose_compose__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! recompose/compose */ "recompose/compose");
+/* harmony import */ var recompose_compose__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(recompose_compose__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var recompose_branch__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! recompose/branch */ "recompose/branch");
+/* harmony import */ var recompose_branch__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(recompose_branch__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var recompose_renderComponent__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! recompose/renderComponent */ "recompose/renderComponent");
+/* harmony import */ var recompose_renderComponent__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(recompose_renderComponent__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! next/router */ "./node_modules/next/router.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_6__);
+
 
 
 
@@ -1979,14 +1979,14 @@ var isLoading = function isLoading(props) {
 };
 
 var renderWhileLoading = function renderWhileLoading(component) {
-  return recompose_branch__WEBPACK_IMPORTED_MODULE_3___default()(isLoading, recompose_renderComponent__WEBPACK_IMPORTED_MODULE_4___default()(component));
+  return recompose_branch__WEBPACK_IMPORTED_MODULE_4___default()(isLoading, recompose_renderComponent__WEBPACK_IMPORTED_MODULE_5___default()(component));
 };
 
 var withQueryOptions = function withQueryOptions(query) {
   var _options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
   return function (Component) {
-    return recompose_compose__WEBPACK_IMPORTED_MODULE_2___default()(next_router__WEBPACK_IMPORTED_MODULE_5__["withRouter"], Object(react_apollo__WEBPACK_IMPORTED_MODULE_1__["graphql"])(query, {
+    return recompose_compose__WEBPACK_IMPORTED_MODULE_3___default()(next_router__WEBPACK_IMPORTED_MODULE_6__["withRouter"], Object(react_apollo__WEBPACK_IMPORTED_MODULE_2__["graphql"])(query, {
       skip: function skip(_ref) {
         var _skip = _ref.skip;
         return !!_skip;
@@ -1995,6 +1995,15 @@ var withQueryOptions = function withQueryOptions(query) {
         var router = _ref2.router;
         var language = router.query.language || 'en';
         var parentResults = _options || {};
+
+        if (parentResults.variables) {
+          _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1___default()(parentResults.variables).forEach(function (key) {
+            if (typeof parentResults.variables[key] === 'function') {
+              parentResults.variables[key] = parentResults.variables[key]();
+            }
+          });
+        }
+
         return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, parentResults, {
           variables: Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({
             language: language
@@ -2007,7 +2016,7 @@ var withQueryOptions = function withQueryOptions(query) {
 var withQueryOptionsAndLoading = function withQueryOptionsAndLoading(query) {
   var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
   return function (Component) {
-    return recompose_compose__WEBPACK_IMPORTED_MODULE_2___default()(withQueryOptions(query, options), renderWhileLoading(function () {
+    return recompose_compose__WEBPACK_IMPORTED_MODULE_3___default()(withQueryOptions(query, options), renderWhileLoading(function () {
       return null;
     }))(Component);
   };
@@ -2211,17 +2220,6 @@ module.exports = require("core-js/library/fn/symbol/iterator");
 /***/ (function(module, exports) {
 
 module.exports = require("graphql-tag");
-
-/***/ }),
-
-/***/ "https":
-/*!************************!*\
-  !*** external "https" ***!
-  \************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("https");
 
 /***/ }),
 

@@ -41,7 +41,13 @@ export const Footer = () => (
         </div>
         <div className="row">
           <div className="col-md-12 text-center">
-
+          <div class="footer-links-container text-center">
+              <a class="footer-link" href="/">Home</a> |
+              <a class="footer-link" href="/shop">Shop</a> |
+              <a class="footer-link" href="/blog">Blog</a> |
+              <a class="footer-link" href="/terms">Terms</a> |
+              <a class="footer-link" href="/privacy">Privacy</a> 
+          </div>
             <p>
                 {/* <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --> */}
 				Copyright 2021 All rights reserved | This template is made with <i className="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
