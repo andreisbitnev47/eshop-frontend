@@ -26,7 +26,7 @@ const InnerComponent = ({ title, translations }) => (
       <title>{translations.get(title) || title}</title>
       <link href={`/static/css/bootstrap.min.css`} rel="stylesheet" />
       <link href={`/static/css/owl.carousel.min.css`} rel="stylesheet" />
-      <link href={`/static/css/style.css`} rel="stylesheet" />
+      <link href={`/static/css/style1.css`} rel="stylesheet" />
       <link href={`/static/css/animate.css`} rel="stylesheet" />
     </Head>
 )
@@ -44,7 +44,7 @@ const ProductInnerComponent = ({ title, translations, router }) => (
           <title>{productTitle}</title>
           <link href={`/static/css/bootstrap.min.css`} rel="stylesheet" />
           <link href={`/static/css/owl.carousel.min.css`} rel="stylesheet" />
-          <link href={`/static/css/style.css`} rel="stylesheet" />
+          <link href={`/static/css/style1.css`} rel="stylesheet" />
           <link href={`/static/css/animate.css`} rel="stylesheet" />
         </Head>
       );

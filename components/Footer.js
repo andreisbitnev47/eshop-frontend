@@ -1,8 +1,11 @@
+import { withRouter } from 'next/router'
+import compose from 'recompose/compose';
+import classNames from 'classnames';
 import { Translate } from './Translate';
 import Link from './Link';
 import A from './A';
 
-export const Footer = () => (
+const FooterComponent = ({ router }) => (
     <footer className="ftco-footer bg-light ftco-section">
       <div className="container">
         <div className="row mb-5">
@@ -41,12 +44,12 @@ export const Footer = () => (
         </div>
         <div className="row">
           <div className="col-md-12 text-center">
-          <div class="footer-links-container text-center">
-              <a class="footer-link" href="/">Home</a> |
-              <a class="footer-link" href="/shop">Shop</a> |
-              <a class="footer-link" href="/blog">Blog</a> |
-              <a class="footer-link" href="/terms">Terms</a> |
-              <a class="footer-link" href="/privacy">Privacy</a> 
+          <div className="footer-links-container text-center">
+              <Link href="/"><span><A classnames="footer-link" href="/"><Translate id="navigation.home"/></A></span></Link> |
+              <Link href="/shop"><span><A classnames="footer-link" href="/shop"><Translate id="navigation.shop"/></A></span></Link> |
+              <Link href="/blog"><span><A classnames="footer-link" href="/blog"><Translate id="navigation.blog"/></A></span></Link> |
+              <Link href="/terms"><span><A classnames="footer-link" href="/terms"><Translate id="navigation.privacy-short"/></A></span></Link> |
+              <Link href="/privacy"><span><A classnames="footer-link" href="/privacy"><Translate id="navigation.terms-short"/></A></span></Link> 
           </div>
             <p>
                 {/* <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --> */}
@@ -74,3 +77,7 @@ export const Footer = () => (
       `}</style>
     </footer>
 );
+
+export const Footer = compose(
+  withRouter,
+)(FooterComponent)
