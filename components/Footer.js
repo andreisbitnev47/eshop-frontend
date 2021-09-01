@@ -10,7 +10,7 @@ const FooterComponent = ({ router }) => (
       <div className="container">
         <div className="row mb-5">
           <div className="col-md">
-            <div className="ftco-footer-widget mb-4">
+            <div className="ftco-footer-widget mb-3">
               <h2 className="ftco-heading-2">EcoSnack</h2>
               <ul className="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                 <li><a href="https://facebook.com/Südamesnack-ecosnackee-432535830893254"><span className="icon-instagram"><img style={{ height: '22px', width: '22px' }} src="/static/img/facebook.svg"/></span></a></li>
@@ -20,7 +20,7 @@ const FooterComponent = ({ router }) => (
             </div>
           </div>
           <div className="col-md">
-            <div className="ftco-footer-widget mb-4">
+            <div className="ftco-footer-widget mb-3">
               <h2 className="ftco-heading-2"><Translate id="footer.shipping"/></h2>
               <ul className="list-unstyled">
                 <li style={{ marginBottom: '12px'}}><img src="/static/img/omniva_logo.png" style={{ width: '40px', marginRight: '18px'}}/><Translate id="footer.omniva"/></li>
@@ -30,7 +30,7 @@ const FooterComponent = ({ router }) => (
             </div>
           </div>
           <div className="col-md">
-            <div className="ftco-footer-widget mb-4">
+            <div className="ftco-footer-widget mb-3">
             	<h2 className="ftco-heading-2"><Translate id="footer.questions"/></h2>
             	<div className="block-23 mb-3">
 	              <ul>
@@ -41,16 +41,22 @@ const FooterComponent = ({ router }) => (
 	            </div>
             </div>
           </div>
+          <div className="col-md">
+            <div className="ftco-footer-widget mb-3">
+            	<h2 className="ftco-heading-2"><Translate id="navigation"/></h2>
+            	<div className="block-23 mb-3">
+	              <ul>
+	                <li><Link href="/shop"><span className="text"><A href="/shop"><Translate id="navigation.shop"/></A></span></Link></li>
+	                <li><Link href="/blog"><span className="text"><A href="/blog"><Translate id="navigation.blog"/></A></span></Link></li>
+                  <li><Link href="/privacy"><span className="text"><A href="/privacy"><Translate id="navigation.privacy-short"/></A></span></Link></li>
+                  <li><Link href="/terms"><span className="text"><A href="/terms"><Translate id="navigation.terms-short"/></A></span></Link></li>
+	              </ul>
+	            </div>
+            </div>
+          </div>
         </div>
         <div className="row">
           <div className="col-md-12 text-center">
-          <div className="footer-links-container text-center">
-              <Link href="/"><span><A classnames="footer-link" href="/"><Translate id="navigation.home"/></A></span></Link> |
-              <Link href="/shop"><span><A classnames="footer-link" href="/shop"><Translate id="navigation.shop"/></A></span></Link> |
-              <Link href="/blog"><span><A classnames="footer-link" href="/blog"><Translate id="navigation.blog"/></A></span></Link> |
-              <Link href="/terms"><span><A classnames="footer-link" href="/terms"><Translate id="navigation.privacy-short"/></A></span></Link> |
-              <Link href="/privacy"><span><A classnames="footer-link" href="/privacy"><Translate id="navigation.terms-short"/></A></span></Link> 
-          </div>
             <p>
                 {/* <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --> */}
 				Copyright 2021 All rights reserved | This template is made with <i className="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>

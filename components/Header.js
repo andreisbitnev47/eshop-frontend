@@ -37,6 +37,7 @@ const Header = ({ router, menuOpen, toggleMenuOpen }) => {
             <Link href="/"><li className="nav-item"><A href="/" classnames={classNames('nav-link', {active: router.pathname === '/'})}><Translate id="navigation.home"/></A></li></Link>
             <Link href="/shop"><li className="nav-item"><A href="/shop" classnames={classNames('nav-link', {active: router.pathname === '/shop'})}><Translate id="navigation.shop"/></A></li></Link>
             <Link href="/about"><li className="nav-item"><A href="/about" classnames={classNames('nav-link', {active: router.pathname === '/about'})}><Translate id="navigation.about"/></A></li></Link>
+            <li className="nav-item"><a href="/blog" className="nav-link"><Translate id="navigation.blog"/></a></li>
             <Link href="/cart">
               <li className="nav-item mobile-hide">
                 <A href="/cart" classnames="nav-link">
