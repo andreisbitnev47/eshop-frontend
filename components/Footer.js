@@ -47,9 +47,10 @@ const FooterComponent = ({ router }) => (
             	<div className="block-23 mb-3">
 	              <ul>
 	                <li><Link href="/shop"><span className="text"><A href="/shop"><Translate id="navigation.shop"/></A></span></Link></li>
-	                <li><Link href="/blog"><span className="text"><A href="/blog"><Translate id="navigation.blog"/></A></span></Link></li>
+	                <li><span className="text"><a href={`/${router.query.language}/blog`}><Translate id="navigation.blog"/></a></span></li>
                   <li><Link href="/privacy"><span className="text"><A href="/privacy"><Translate id="navigation.privacy-short"/></A></span></Link></li>
                   <li><Link href="/terms"><span className="text"><A href="/terms"><Translate id="navigation.terms-short"/></A></span></Link></li>
+                  <li><span className="text"><a href={`/${router.query.language}/sitemap`}><Translate id="navigation.sitemap"/></a></span></li>
 	              </ul>
 	            </div>
             </div>
