@@ -24,8 +24,8 @@ const productsQuery = gql`
 `
 
 const orderMutation = gql`
-    mutation addOrder($shippingProviderId: ID!, $shippingProviderAddress: String!, $email: String!, $phone: String!, $orderProducts: [orderProductsInput]!, $language: String!, $client: String!) {
-        addOrder (shippingProviderId: $shippingProviderId, shippingProviderAddress: $shippingProviderAddress, email: $email, phone: $phone, orderProducts: $orderProducts, language: $language, client: $client) {
+    mutation addOrder($shippingProviderId: ID!, $shippingProviderAddress: String!, $email: String!, $phone: String!, $orderProducts: [orderProductsInput]!, $language: String!, $client: String!, $promoCode: String) {
+        addOrder (shippingProviderId: $shippingProviderId, shippingProviderAddress: $shippingProviderAddress, email: $email, phone: $phone, orderProducts: $orderProducts, language: $language, client: $client, promoCode: $promoCode) {
             order {
                 id
                 orderId
@@ -60,6 +60,8 @@ const InnerComponent = ({
     cartItems,
     orderId,
     orderAmount,
+    promoCode,
+    setPromoCode,
     setOrderAmount}) => (
     <>
         {orderId && orderId !== 'error' ?
@@ -80,6 +82,8 @@ const InnerComponent = ({
                 setOrderAmount={setOrderAmount}
                 title={title}
                 paragraph={paragraph}
+                promoCode={promoCode}
+                setPromoCode={setPromoCode}
             /> :
         <EmptyCheckout />
         }
@@ -206,6 +210,8 @@ const CheckoutFormInnerComponent = ({
     language,
     title,
     paragraph,
+    promoCode,
+    setPromoCode,
     setOrderAmount}) => {
     return (<Mutation mutation={orderMutation}>
         {(addOrder, { data }) => (
@@ -221,6 +227,7 @@ const CheckoutFormInnerComponent = ({
                                 client,
                                 language,
                                 shippingProviderAddress,
+                                promoCode,
                                 shippingProviderId: shippingProvider,
                                 orderProducts: cartItems,
                             } })
@@ -260,6 +267,12 @@ const CheckoutFormInnerComponent = ({
                                     setShippingProviderAddress={setShippingProviderAddress}
                                     setShippingPrice={setShippingPrice}
                                 />
+                                <div className="col-lg-6">
+                                    <div className="form-group">
+                                        <label for="client"><Translate id="checkout.promoCode" /></label>
+                                        <input name="client" type="text" className="form-control" placeholder="" required value={promoCode} onChange={(e) => { setPromoCode(e.target.value) }}/>
+                                    </div>
+                                </div>
                                 <div className="col-lg-7" style={{ margin: '20px 0' }}>
                                     <h3>{title[0]}</h3>
                                     {paragraph.map(paragraph => <p>{paragraph}</p>)}
@@ -328,6 +341,7 @@ export const Checkout = compose(
     withState('orderAmount', 'setOrderAmount', 0),
     withState('cartItems', 'setCartItems', []),
     withState('email', 'setEmail', ''),
+    withState('promoCode', 'setPromoCode', ''),
     withState('phone', 'setPhone', ''),
     withState('client', 'setClient', 'Eraisik'),
     lifecycle({
