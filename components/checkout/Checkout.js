@@ -29,6 +29,7 @@ const orderMutation = gql`
             order {
                 id
                 orderId
+                totalWithShippingAndPromoCode
             }
         }
     }
@@ -233,11 +234,12 @@ const CheckoutFormInnerComponent = ({
                             } })
                             .then((data) => {
                                 const orderId = get(data, 'data.addOrder.order.orderId', '');
+                                const totalWithShippingAndPromoCode = get(data, 'data.addOrder.order.totalWithShippingAndPromoCode', '');
                                 if (!orderId) {
                                     setOrderId('error');
                                 } else {
                                     setOrderId(orderId);
-                                    setOrderAmount(Big(cartPrice).plus(Big(shippingPrice || 0)).toFixed(2));
+                                    setOrderAmount(totalWithShippingAndPromoCode);
                                 }
                             });
                             }} className="billing-form bg-light p-3 p-md-5">
@@ -270,7 +272,7 @@ const CheckoutFormInnerComponent = ({
                                 <div className="col-lg-6">
                                     <div className="form-group">
                                         <label for="client"><Translate id="checkout.promoCode" /></label>
-                                        <input name="client" type="text" className="form-control" placeholder="" required value={promoCode} onChange={(e) => { setPromoCode(e.target.value) }}/>
+                                        <input name="client" type="text" className="form-control" placeholder="" value={promoCode} onChange={(e) => { setPromoCode(e.target.value) }}/>
                                     </div>
                                 </div>
                                 <div className="col-lg-7" style={{ margin: '20px 0' }}>
